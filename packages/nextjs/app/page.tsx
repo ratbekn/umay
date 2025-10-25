@@ -87,7 +87,7 @@ const Home: NextPage = () => {
                           onClick={openConnectModal}
                           className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
                         >
-                          🚀 Invest Now
+                          Connect Wallet
                         </button>
                       );
                     }
@@ -145,7 +145,7 @@ const Home: NextPage = () => {
                               onClick={openConnectModal}
                               className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
                             >
-                              🚀 Invest Now
+                              Connect Wallet
                             </button>
                           );
                         }
@@ -449,7 +449,7 @@ const Home: NextPage = () => {
                                   onClick={openConnectModal}
                                   className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
                                 >
-                                  🚀 Invest Now
+                                  Connect Wallet
                                 </button>
                               );
                             }
@@ -531,7 +531,7 @@ const Home: NextPage = () => {
                                   onClick={openConnectModal}
                                   className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
                                 >
-                                  🚀 Invest Now
+                                  Connect Wallet
                                 </button>
                               );
                             }
@@ -615,7 +615,7 @@ const Home: NextPage = () => {
                                   onClick={openConnectModal}
                                   className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
                                 >
-                                  🚀 Invest Now
+                                  Connect Wallet
                                 </button>
                               );
                             }
@@ -924,7 +924,7 @@ const Home: NextPage = () => {
                               onClick={openConnectModal}
                               className="px-10 py-4 bg-gradient-to-br from-primary to-primary/90 text-white text-xl font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-3"
                             >
-                              🚀 Invest Now
+                              Connect Wallet
                             </button>
                           );
                         }
