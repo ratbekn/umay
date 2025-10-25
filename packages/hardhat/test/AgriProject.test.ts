@@ -44,16 +44,18 @@ describe("AgriProject", function () {
       const deadline = (await time.latest()) + 86400 * 30; // 30 days from now
       const duration = 90; // 90 days
 
-      const tx = await agriProject.connect(projectOwner).createProject(
-        "Wheat Farming Project",
-        "Growing organic wheat in Issyk-Kul region",
-        "Issyk-Kul, Kyrgyzstan",
-        FUNDING_GOAL,
-        MIN_INVESTMENT,
-        EXPECTED_RETURN,
-        deadline,
-        duration,
-      );
+      const tx = await agriProject
+        .connect(projectOwner)
+        .createProject(
+          "Wheat Farming Project",
+          "Growing organic wheat in Issyk-Kul region",
+          "Issyk-Kul, Kyrgyzstan",
+          FUNDING_GOAL,
+          MIN_INVESTMENT,
+          EXPECTED_RETURN,
+          deadline,
+          duration,
+        );
 
       await expect(tx)
         .to.emit(agriProject, "ProjectCreated")
@@ -89,16 +91,18 @@ describe("AgriProject", function () {
 
     beforeEach(async function () {
       deadline = (await time.latest()) + 86400 * 30;
-      const tx = await agriProject.connect(projectOwner).createProject(
-        "Test Project",
-        "Description",
-        "Location",
-        FUNDING_GOAL,
-        MIN_INVESTMENT,
-        EXPECTED_RETURN,
-        deadline,
-        90,
-      );
+      const tx = await agriProject
+        .connect(projectOwner)
+        .createProject(
+          "Test Project",
+          "Description",
+          "Location",
+          FUNDING_GOAL,
+          MIN_INVESTMENT,
+          EXPECTED_RETURN,
+          deadline,
+          90,
+        );
       const receipt = await tx.wait();
       projectId = 0;
     });
@@ -148,16 +152,18 @@ describe("AgriProject", function () {
 
     beforeEach(async function () {
       const deadline = (await time.latest()) + 86400 * 30;
-      await agriProject.connect(projectOwner).createProject(
-        "Test Project",
-        "Description",
-        "Location",
-        FUNDING_GOAL,
-        MIN_INVESTMENT,
-        EXPECTED_RETURN,
-        deadline,
-        90,
-      );
+      await agriProject
+        .connect(projectOwner)
+        .createProject(
+          "Test Project",
+          "Description",
+          "Location",
+          FUNDING_GOAL,
+          MIN_INVESTMENT,
+          EXPECTED_RETURN,
+          deadline,
+          90,
+        );
       projectId = 0;
 
       // Fully fund the project
@@ -195,16 +201,18 @@ describe("AgriProject", function () {
 
     beforeEach(async function () {
       const deadline = (await time.latest()) + 86400 * 30;
-      await agriProject.connect(projectOwner).createProject(
-        "Test Project",
-        "Description",
-        "Location",
-        FUNDING_GOAL,
-        MIN_INVESTMENT,
-        EXPECTED_RETURN,
-        deadline,
-        90,
-      );
+      await agriProject
+        .connect(projectOwner)
+        .createProject(
+          "Test Project",
+          "Description",
+          "Location",
+          FUNDING_GOAL,
+          MIN_INVESTMENT,
+          EXPECTED_RETURN,
+          deadline,
+          90,
+        );
       projectId = 0;
 
       // Fully fund the project
@@ -222,7 +230,7 @@ describe("AgriProject", function () {
 
     it("Should distribute returns proportionally", async function () {
       const returns = ethers.parseUnits("1500", 6);
-      
+
       const investor1BalanceBefore = await mockUSDT.balanceOf(investor1.address);
       const investor2BalanceBefore = await mockUSDT.balanceOf(investor2.address);
 
@@ -246,16 +254,18 @@ describe("AgriProject", function () {
 
     beforeEach(async function () {
       const deadline = (await time.latest()) + 86400 * 30;
-      await agriProject.connect(projectOwner).createProject(
-        "Test Project",
-        "Description",
-        "Location",
-        FUNDING_GOAL,
-        MIN_INVESTMENT,
-        EXPECTED_RETURN,
-        deadline,
-        90,
-      );
+      await agriProject
+        .connect(projectOwner)
+        .createProject(
+          "Test Project",
+          "Description",
+          "Location",
+          FUNDING_GOAL,
+          MIN_INVESTMENT,
+          EXPECTED_RETURN,
+          deadline,
+          90,
+        );
       projectId = 0;
 
       // Partial funding

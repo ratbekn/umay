@@ -3,10 +3,7 @@
 /* eslint-disable */
 
 import { Contract, Interface, type ContractRunner } from "ethers";
-import type {
-  Ownable,
-  OwnableInterface,
-} from "../../../../@openzeppelin/contracts/access/Ownable";
+import type { Ownable, OwnableInterface } from "../../../../@openzeppelin/contracts/access/Ownable";
 
 const _abi = [
   {

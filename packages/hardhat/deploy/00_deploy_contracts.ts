@@ -20,7 +20,7 @@ const deployContracts: DeployFunction = async function (hre: HardhatRuntimeEnvir
 
   // Deploy AgriProject with 2.5% platform fee (250 basis points)
   const platformFee = 250; // 2.5%
-  
+
   console.log("\n📌 Deploying AgriProject...");
   const agriProject = await deploy("AgriProject", {
     from: deployer,
