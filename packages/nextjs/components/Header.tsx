@@ -3,15 +3,12 @@
 import React from "react";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import { SwitchTheme } from "./SwitchTheme";
 
 export const Header = () => {
-  const pathname = usePathname();
-
   return (
     <div className="navbar bg-base-100 border-b border-base-300 sticky top-0 z-50">
       <div className="navbar-start">
