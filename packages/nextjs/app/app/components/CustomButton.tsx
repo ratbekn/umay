@@ -3,14 +3,6 @@
 import React from "react"
 import { useAccount, useConnect, useDisconnect } from "wagmi"
 import { switchToPolygon } from "../lib/eth"
-import { Button } from "../../app/components/ui/button"
-import { Wallet, ChevronDown } from "lucide-react"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../../app/components/ui/dropdown"
 
 export const CustomConnectButton = () => {
   const { address, isConnected } = useAccount()
@@ -26,27 +18,7 @@ export const CustomConnectButton = () => {
   }, [isConnected])
 
   if (!isConnected) {
-    return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button className="gap-2 bg-[#64BF43] text-white hover:bg-[#57a63b] transition-colors">
-            <Wallet className="w-4 h-4 text-white" />
-            Connect Wallet
-            <ChevronDown className="w-4 h-4 text-white" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          {connectors.map((connector) => (
-            <DropdownMenuItem
-              key={connector.id}
-              onClick={() => connect({ connector })}
-            >
-              {connector.name}
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
-    )
+    return (<div></div>)
   }
 
   return (
@@ -57,13 +29,13 @@ export const CustomConnectButton = () => {
           {address?.slice(0, 6)}...{address?.slice(-4)}
         </span>
       </div>
-      <Button
+      <button
         onClick={() => disconnect()}
         size="sm"
         className="bg-[#64BF43] text-white hover:bg-[#57a63b] transition-colors"
       >
         Disconnect
-      </Button>
+      </button>
     </div>
   )
 }

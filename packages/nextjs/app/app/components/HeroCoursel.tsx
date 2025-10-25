@@ -1,8 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "../../app/components/ui/button"
 import Image from "next/image"
 
 const slides = [
@@ -57,23 +55,21 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      <Button
+      <button
         variant="ghost"
         size="icon"
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white"
         onClick={prevSlide}
       >
-        <ChevronLeft className="w-6 h-6" />
-      </Button>
+      </button>
 
-      <Button
+      <button
         variant="ghost"
         size="icon"
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white"
         onClick={nextSlide}
       >
-        <ChevronRight className="w-6 h-6" />
-      </Button>
+      </button>
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, index) => (

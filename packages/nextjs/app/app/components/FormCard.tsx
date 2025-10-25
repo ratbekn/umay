@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { Card } from "../../app/components/ui/card"
-import { Button } from "../../app/components/ui/button"
 import { ethers, MaxUint256 } from "ethers"
 import ERC20Abi from "../../app/lib/abis/ERC20.json"
 import { getWriteContract } from "../../app/lib/eth"
@@ -118,73 +117,48 @@ export function FarmCard({ farm, walletConnected }: FarmCardProps) {
 
 
   return (
-    <Card className="p-6 rounded-xl border border-border bg-card hover:shadow-xl transition-shadow space-y-5">
-      <div className="flex items-center justify-between mb-4">
-        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-          <span className="text-primary text-2xl">🌾</span>
+      <div className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow space-y-4">
+        <div className="flex items-center justify-between mb-4">
+          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <span className="text-primary text-xl">{farm.icon}</span>
+          </div>
+        <div className="flex items-center gap-2">
+          <span className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
+           {farm.status}
+          </span>
         </div>
-        <div className="flex items-center gap-2"> <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
-            {farm.status}</span>
-        </div>
-      </div>
-
-      <h3 className="text-xl md:text-2xl font-semibold text-foreground">{farm.name}</h3>
-
-      <div className="space-y-3 text-sm md:text-base">
-        <div className="flex justify-between pb-5">
-          <span className="text-muted-foreground font-medium">Region:</span>
-          <span className="text-foreground font-medium">{farm.region}</span>
-        </div>
-        <div className="flex justify-between pb-5">
-          <span className="text-muted-foreground font-medium">Term:</span>
-          <span className="text-foreground font-medium">{farm.term}</span>
-        </div>
-        <div className="flex justify-between pb-5">
-          <span className="text-muted-foreground font-medium">Projected Return:</span>
-          <span className="text-primary font-semibold">{farm.projected}</span>
-        </div>
-        <div className="flex justify-between pb-5">
-          <span className="text-muted-foreground font-medium">Risk Level:</span>
-          <span className="text-foreground font-medium">{farm.riskLevel}</span>
-        </div>
-      </div>
-
-      <div className="pt-2">
-        <label className="block text-sm text-muted-foreground mb-1">Amount (USDT)</label>
-        <input
-          type="number"
-          step="any"
-          min="0"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="w-full px-3 py-2 rounded-md border border-border bg-input text-foreground"
-          placeholder="0.00"
-        />
-      </div>
-
-      {/* Approve token (calls ERC20.approve) */}
-      <Button
-        className="w-full mt-5 px-6 py-3 bg-yellow-600 text-white font-semibold rounded-lg hover:bg-yellow-700 transition-colors"
-        onClick={handleApprove}
-        disabled={!walletConnected || isApproving}
-      >
-        {!walletConnected ? "Connect Wallet" : isApproving ? "Approving..." : "Approve USDT"}
-      </Button>
-      <Button
-        className="w-full mt-3 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors"
-        onClick={handleInvestOnChain}
-        disabled={!walletConnected || isInvestingOnChain}
-      >
-        {!walletConnected ? "Connect Wallet" : isInvestingOnChain ? "Investing..." : "Invest Now"}
-      </Button>
-
-      <Button
-        className="w-full mt-3 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
-        onClick={handleRefund}
-        disabled={!walletConnected || isRefunding}
-      >
-        {!walletConnected ? "Connect Wallet" : isRefunding ? "Refunding..." : "Request Refund"}
-      </Button>
-    </Card>
+       </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{farm.name}</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Region:</span>
+                    <span className="text-foreground font-medium">{farm.region}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Term:</span>
+                    <span className="text-foreground font-medium">{farm.term}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Projected Return:</span>
+                    <span className="text-primary font-semibold">{farm.projected}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Risk Level:</span>
+                    <span className="text-accent font-medium">{farm.riskLevel}</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 pt-4 border-t border-border">
+                  <div className="flex items-center gap-1">
+                    <span className="text-primary text-sm">✔</span>
+                    <span className="text-xs text-muted-foreground">Escrow</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-primary text-sm">✔</span>
+                    <span className="text-xs text-muted-foreground">Insurance</span>
+                  </div>
+                </div>
+                <div className="mt-4">
+                </div>
+              </div>
   )
 }
