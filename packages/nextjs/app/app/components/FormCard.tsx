@@ -38,8 +38,8 @@ export function FarmCard({ farm, walletConnected }: FarmCardProps) {
 
   // Mapping: for demo/local we use MockUSDT -> AgriProject deployed addresses from hardhat deployments (localhost)
   const CONTRACT_ADDRESSES: Record<string, string> = {
-    mockUSDT: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-    agriProject: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    mockUSDT: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    agriProject: "0x7e84e7da2C074A631E607b698f026C899Fc6E611",
   }
 
   async function handleApprove() {
@@ -76,11 +76,6 @@ export function FarmCard({ farm, walletConnected }: FarmCardProps) {
   ]
 
   async function handleInvestOnChain() {
-    if (!amount || Number(amount) <= 0) {
-      alert("Введите сумму для инвестирования")
-      return
-    }
-
     try {
       setIsInvestingOnChain(true)
       // USDT decimals = 6 in this project
@@ -150,14 +145,33 @@ export function FarmCard({ farm, walletConnected }: FarmCardProps) {
                 <div className="flex items-center gap-4 pt-4 border-t border-border">
                   <div className="flex items-center gap-1">
                     <span className="text-primary text-sm">✔</span>
-                    <span className="text-xs text-muted-foreground">Escrow</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-primary text-sm">✔</span>
                     <span className="text-xs text-muted-foreground">Insurance</span>
                   </div>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 space-y-3">
+                  <div>
+                    <label htmlFor={`amount-${farm.id}`} className="block text-sm font-medium text-muted-foreground mb-2">
+                      Investment Amount (USDT)
+                    </label>
+                    <input
+                      id={`amount-${farm.id}`}
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      value={amount}
+                      onChange={(e) => setAmount(e.target.value)}
+                      placeholder="Enter amount"
+                      className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      disabled={!walletConnected}
+                    />
+                  </div>
+                  <button
+                    onClick={handleInvestOnChain}
+                    disabled={!walletConnected || isInvestingOnChain || !amount || Number(amount) <= 0}
+                    className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    {isInvestingOnChain ? "Investing..." : "Invest"}
+                  </button>
                 </div>
               </div>
   )
