@@ -53,7 +53,7 @@ export declare namespace AgriProject {
     deadline: bigint,
     duration: bigint,
     status: bigint,
-    fundsWithdrawn: boolean
+    fundsWithdrawn: boolean,
   ] & {
     id: bigint;
     name: string;
@@ -77,12 +77,7 @@ export declare namespace AgriProject {
     withdrawn: boolean;
   };
 
-  export type InvestmentStructOutput = [
-    investor: string,
-    amount: bigint,
-    timestamp: bigint,
-    withdrawn: boolean
-  ] & {
+  export type InvestmentStructOutput = [investor: string, amount: bigint, timestamp: bigint, withdrawn: boolean] & {
     investor: string;
     amount: bigint;
     timestamp: bigint;
@@ -110,7 +105,7 @@ export interface AgriProjectInterface extends Interface {
       | "stableCoin"
       | "transferOwnership"
       | "updatePlatformFee"
-      | "withdrawFunds"
+      | "withdrawFunds",
   ): FunctionFragment;
 
   getEvent(
@@ -122,145 +117,49 @@ export interface AgriProjectInterface extends Interface {
       | "ProjectCompleted"
       | "ProjectCreated"
       | "ProjectFunded"
-      | "ReturnsDistributed"
+      | "ReturnsDistributed",
   ): EventFragment;
 
-  encodeFunctionData(
-    functionFragment: "cancelProject",
-    values: [BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "cancelProject", values: [BigNumberish]): string;
   encodeFunctionData(
     functionFragment: "createProject",
-    values: [
-      string,
-      string,
-      string,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish
-    ]
+    values: [string, string, string, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish],
   ): string;
-  encodeFunctionData(
-    functionFragment: "distributeReturns",
-    values: [BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getInvestorAmount",
-    values: [BigNumberish, AddressLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getProject",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getProjectInvestments",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "invest",
-    values: [BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "investorAmounts",
-    values: [BigNumberish, AddressLike]
-  ): string;
+  encodeFunctionData(functionFragment: "distributeReturns", values: [BigNumberish, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getInvestorAmount", values: [BigNumberish, AddressLike]): string;
+  encodeFunctionData(functionFragment: "getProject", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getProjectInvestments", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "invest", values: [BigNumberish, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "investorAmounts", values: [BigNumberish, AddressLike]): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "platformFee",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "projectCounter",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "projectInvestments",
-    values: [BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "projects",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceOwnership",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "stableCoin",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [AddressLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "updatePlatformFee",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdrawFunds",
-    values: [BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "platformFee", values?: undefined): string;
+  encodeFunctionData(functionFragment: "projectCounter", values?: undefined): string;
+  encodeFunctionData(functionFragment: "projectInvestments", values: [BigNumberish, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "projects", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
+  encodeFunctionData(functionFragment: "stableCoin", values?: undefined): string;
+  encodeFunctionData(functionFragment: "transferOwnership", values: [AddressLike]): string;
+  encodeFunctionData(functionFragment: "updatePlatformFee", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "withdrawFunds", values: [BigNumberish]): string;
 
-  decodeFunctionResult(
-    functionFragment: "cancelProject",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "createProject",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "distributeReturns",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getInvestorAmount",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "cancelProject", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "createProject", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "distributeReturns", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getInvestorAmount", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "getProject", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getProjectInvestments",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "getProjectInvestments", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "invest", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "investorAmounts",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "investorAmounts", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "platformFee",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "projectCounter",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "projectInvestments",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "platformFee", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "projectCounter", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "projectInvestments", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "projects", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceOwnership",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "stableCoin", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "transferOwnership",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "updatePlatformFee",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "withdrawFunds",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "updatePlatformFee", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "withdrawFunds", data: BytesLike): Result;
 }
 
 export namespace FundsWithdrawnEvent {
@@ -277,16 +176,8 @@ export namespace FundsWithdrawnEvent {
 }
 
 export namespace InvestmentMadeEvent {
-  export type InputTuple = [
-    projectId: BigNumberish,
-    investor: AddressLike,
-    amount: BigNumberish
-  ];
-  export type OutputTuple = [
-    projectId: bigint,
-    investor: string,
-    amount: bigint
-  ];
+  export type InputTuple = [projectId: BigNumberish, investor: AddressLike, amount: BigNumberish];
+  export type OutputTuple = [projectId: bigint, investor: string, amount: bigint];
   export interface OutputObject {
     projectId: bigint;
     investor: string;
@@ -340,14 +231,9 @@ export namespace ProjectCreatedEvent {
     projectId: BigNumberish,
     name: string,
     projectOwner: AddressLike,
-    fundingGoal: BigNumberish
+    fundingGoal: BigNumberish,
   ];
-  export type OutputTuple = [
-    projectId: bigint,
-    name: string,
-    projectOwner: string,
-    fundingGoal: bigint
-  ];
+  export type OutputTuple = [projectId: bigint, name: string, projectOwner: string, fundingGoal: bigint];
   export interface OutputObject {
     projectId: bigint;
     name: string;
@@ -395,45 +281,31 @@ export interface AgriProject extends BaseContract {
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEventLog<TCEvent>>>;
   queryFilter<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEventLog<TCEvent>>>;
 
-  on<TCEvent extends TypedContractEvent>(
-    event: TCEvent,
-    listener: TypedListener<TCEvent>
-  ): Promise<this>;
+  on<TCEvent extends TypedContractEvent>(event: TCEvent, listener: TypedListener<TCEvent>): Promise<this>;
   on<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>
+    listener: TypedListener<TCEvent>,
   ): Promise<this>;
 
-  once<TCEvent extends TypedContractEvent>(
-    event: TCEvent,
-    listener: TypedListener<TCEvent>
-  ): Promise<this>;
+  once<TCEvent extends TypedContractEvent>(event: TCEvent, listener: TypedListener<TCEvent>): Promise<this>;
   once<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>
+    listener: TypedListener<TCEvent>,
   ): Promise<this>;
 
-  listeners<TCEvent extends TypedContractEvent>(
-    event: TCEvent
-  ): Promise<Array<TypedListener<TCEvent>>>;
+  listeners<TCEvent extends TypedContractEvent>(event: TCEvent): Promise<Array<TypedListener<TCEvent>>>;
   listeners(eventName?: string): Promise<Array<Listener>>;
-  removeAllListeners<TCEvent extends TypedContractEvent>(
-    event?: TCEvent
-  ): Promise<this>;
+  removeAllListeners<TCEvent extends TypedContractEvent>(event?: TCEvent): Promise<this>;
 
-  cancelProject: TypedContractMethod<
-    [_projectId: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
+  cancelProject: TypedContractMethod<[_projectId: BigNumberish], [void], "nonpayable">;
 
   createProject: TypedContractMethod<
     [
@@ -444,29 +316,17 @@ export interface AgriProject extends BaseContract {
       _minInvestment: BigNumberish,
       _expectedReturn: BigNumberish,
       _deadline: BigNumberish,
-      _duration: BigNumberish
+      _duration: BigNumberish,
     ],
     [bigint],
     "nonpayable"
   >;
 
-  distributeReturns: TypedContractMethod<
-    [_projectId: BigNumberish, _totalReturns: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
+  distributeReturns: TypedContractMethod<[_projectId: BigNumberish, _totalReturns: BigNumberish], [void], "nonpayable">;
 
-  getInvestorAmount: TypedContractMethod<
-    [_projectId: BigNumberish, _investor: AddressLike],
-    [bigint],
-    "view"
-  >;
+  getInvestorAmount: TypedContractMethod<[_projectId: BigNumberish, _investor: AddressLike], [bigint], "view">;
 
-  getProject: TypedContractMethod<
-    [_projectId: BigNumberish],
-    [AgriProject.ProjectStructOutput],
-    "view"
-  >;
+  getProject: TypedContractMethod<[_projectId: BigNumberish], [AgriProject.ProjectStructOutput], "view">;
 
   getProjectInvestments: TypedContractMethod<
     [_projectId: BigNumberish],
@@ -474,17 +334,9 @@ export interface AgriProject extends BaseContract {
     "view"
   >;
 
-  invest: TypedContractMethod<
-    [_projectId: BigNumberish, _amount: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
+  invest: TypedContractMethod<[_projectId: BigNumberish, _amount: BigNumberish], [void], "nonpayable">;
 
-  investorAmounts: TypedContractMethod<
-    [arg0: BigNumberish, arg1: AddressLike],
-    [bigint],
-    "view"
-  >;
+  investorAmounts: TypedContractMethod<[arg0: BigNumberish, arg1: AddressLike], [bigint], "view">;
 
   owner: TypedContractMethod<[], [string], "view">;
 
@@ -500,7 +352,7 @@ export interface AgriProject extends BaseContract {
         amount: bigint;
         timestamp: bigint;
         withdrawn: boolean;
-      }
+      },
     ],
     "view"
   >;
@@ -508,21 +360,7 @@ export interface AgriProject extends BaseContract {
   projects: TypedContractMethod<
     [arg0: BigNumberish],
     [
-      [
-        bigint,
-        string,
-        string,
-        string,
-        string,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        boolean
-      ] & {
+      [bigint, string, string, string, string, bigint, bigint, bigint, bigint, bigint, bigint, bigint, boolean] & {
         id: bigint;
         name: string;
         description: string;
@@ -536,7 +374,7 @@ export interface AgriProject extends BaseContract {
         duration: bigint;
         status: bigint;
         fundsWithdrawn: boolean;
-      }
+      },
     ],
     "view"
   >;
@@ -545,33 +383,17 @@ export interface AgriProject extends BaseContract {
 
   stableCoin: TypedContractMethod<[], [string], "view">;
 
-  transferOwnership: TypedContractMethod<
-    [newOwner: AddressLike],
-    [void],
-    "nonpayable"
-  >;
+  transferOwnership: TypedContractMethod<[newOwner: AddressLike], [void], "nonpayable">;
 
-  updatePlatformFee: TypedContractMethod<
-    [_newFee: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
+  updatePlatformFee: TypedContractMethod<[_newFee: BigNumberish], [void], "nonpayable">;
 
-  withdrawFunds: TypedContractMethod<
-    [_projectId: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
+  withdrawFunds: TypedContractMethod<[_projectId: BigNumberish], [void], "nonpayable">;
 
-  getFunction<T extends ContractMethod = ContractMethod>(
-    key: string | FunctionFragment
-  ): T;
+  getFunction<T extends ContractMethod = ContractMethod>(key: string | FunctionFragment): T;
 
+  getFunction(nameOrSignature: "cancelProject"): TypedContractMethod<[_projectId: BigNumberish], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: "cancelProject"
-  ): TypedContractMethod<[_projectId: BigNumberish], [void], "nonpayable">;
-  getFunction(
-    nameOrSignature: "createProject"
+    nameOrSignature: "createProject",
   ): TypedContractMethod<
     [
       _name: string,
@@ -581,65 +403,33 @@ export interface AgriProject extends BaseContract {
       _minInvestment: BigNumberish,
       _expectedReturn: BigNumberish,
       _deadline: BigNumberish,
-      _duration: BigNumberish
+      _duration: BigNumberish,
     ],
     [bigint],
     "nonpayable"
   >;
   getFunction(
-    nameOrSignature: "distributeReturns"
-  ): TypedContractMethod<
-    [_projectId: BigNumberish, _totalReturns: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
+    nameOrSignature: "distributeReturns",
+  ): TypedContractMethod<[_projectId: BigNumberish, _totalReturns: BigNumberish], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: "getInvestorAmount"
-  ): TypedContractMethod<
-    [_projectId: BigNumberish, _investor: AddressLike],
-    [bigint],
-    "view"
-  >;
+    nameOrSignature: "getInvestorAmount",
+  ): TypedContractMethod<[_projectId: BigNumberish, _investor: AddressLike], [bigint], "view">;
   getFunction(
-    nameOrSignature: "getProject"
-  ): TypedContractMethod<
-    [_projectId: BigNumberish],
-    [AgriProject.ProjectStructOutput],
-    "view"
-  >;
+    nameOrSignature: "getProject",
+  ): TypedContractMethod<[_projectId: BigNumberish], [AgriProject.ProjectStructOutput], "view">;
   getFunction(
-    nameOrSignature: "getProjectInvestments"
-  ): TypedContractMethod<
-    [_projectId: BigNumberish],
-    [AgriProject.InvestmentStructOutput[]],
-    "view"
-  >;
+    nameOrSignature: "getProjectInvestments",
+  ): TypedContractMethod<[_projectId: BigNumberish], [AgriProject.InvestmentStructOutput[]], "view">;
   getFunction(
-    nameOrSignature: "invest"
-  ): TypedContractMethod<
-    [_projectId: BigNumberish, _amount: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
+    nameOrSignature: "invest",
+  ): TypedContractMethod<[_projectId: BigNumberish, _amount: BigNumberish], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: "investorAmounts"
-  ): TypedContractMethod<
-    [arg0: BigNumberish, arg1: AddressLike],
-    [bigint],
-    "view"
-  >;
-  getFunction(
-    nameOrSignature: "owner"
-  ): TypedContractMethod<[], [string], "view">;
-  getFunction(
-    nameOrSignature: "platformFee"
-  ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "projectCounter"
-  ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "projectInvestments"
-  ): TypedContractMethod<
+    nameOrSignature: "investorAmounts",
+  ): TypedContractMethod<[arg0: BigNumberish, arg1: AddressLike], [bigint], "view">;
+  getFunction(nameOrSignature: "owner"): TypedContractMethod<[], [string], "view">;
+  getFunction(nameOrSignature: "platformFee"): TypedContractMethod<[], [bigint], "view">;
+  getFunction(nameOrSignature: "projectCounter"): TypedContractMethod<[], [bigint], "view">;
+  getFunction(nameOrSignature: "projectInvestments"): TypedContractMethod<
     [arg0: BigNumberish, arg1: BigNumberish],
     [
       [string, bigint, bigint, boolean] & {
@@ -647,30 +437,14 @@ export interface AgriProject extends BaseContract {
         amount: bigint;
         timestamp: bigint;
         withdrawn: boolean;
-      }
+      },
     ],
     "view"
   >;
-  getFunction(
-    nameOrSignature: "projects"
-  ): TypedContractMethod<
+  getFunction(nameOrSignature: "projects"): TypedContractMethod<
     [arg0: BigNumberish],
     [
-      [
-        bigint,
-        string,
-        string,
-        string,
-        string,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        boolean
-      ] & {
+      [bigint, string, string, string, string, bigint, bigint, bigint, bigint, bigint, bigint, bigint, boolean] & {
         id: bigint;
         name: string;
         description: string;
@@ -684,77 +458,63 @@ export interface AgriProject extends BaseContract {
         duration: bigint;
         status: bigint;
         fundsWithdrawn: boolean;
-      }
+      },
     ],
     "view"
   >;
-  getFunction(
-    nameOrSignature: "renounceOwnership"
-  ): TypedContractMethod<[], [void], "nonpayable">;
-  getFunction(
-    nameOrSignature: "stableCoin"
-  ): TypedContractMethod<[], [string], "view">;
-  getFunction(
-    nameOrSignature: "transferOwnership"
-  ): TypedContractMethod<[newOwner: AddressLike], [void], "nonpayable">;
-  getFunction(
-    nameOrSignature: "updatePlatformFee"
-  ): TypedContractMethod<[_newFee: BigNumberish], [void], "nonpayable">;
-  getFunction(
-    nameOrSignature: "withdrawFunds"
-  ): TypedContractMethod<[_projectId: BigNumberish], [void], "nonpayable">;
+  getFunction(nameOrSignature: "renounceOwnership"): TypedContractMethod<[], [void], "nonpayable">;
+  getFunction(nameOrSignature: "stableCoin"): TypedContractMethod<[], [string], "view">;
+  getFunction(nameOrSignature: "transferOwnership"): TypedContractMethod<[newOwner: AddressLike], [void], "nonpayable">;
+  getFunction(nameOrSignature: "updatePlatformFee"): TypedContractMethod<[_newFee: BigNumberish], [void], "nonpayable">;
+  getFunction(nameOrSignature: "withdrawFunds"): TypedContractMethod<[_projectId: BigNumberish], [void], "nonpayable">;
 
   getEvent(
-    key: "FundsWithdrawn"
+    key: "FundsWithdrawn",
   ): TypedContractEvent<
     FundsWithdrawnEvent.InputTuple,
     FundsWithdrawnEvent.OutputTuple,
     FundsWithdrawnEvent.OutputObject
   >;
   getEvent(
-    key: "InvestmentMade"
+    key: "InvestmentMade",
   ): TypedContractEvent<
     InvestmentMadeEvent.InputTuple,
     InvestmentMadeEvent.OutputTuple,
     InvestmentMadeEvent.OutputObject
   >;
   getEvent(
-    key: "OwnershipTransferred"
+    key: "OwnershipTransferred",
   ): TypedContractEvent<
     OwnershipTransferredEvent.InputTuple,
     OwnershipTransferredEvent.OutputTuple,
     OwnershipTransferredEvent.OutputObject
   >;
   getEvent(
-    key: "ProjectCancelled"
+    key: "ProjectCancelled",
   ): TypedContractEvent<
     ProjectCancelledEvent.InputTuple,
     ProjectCancelledEvent.OutputTuple,
     ProjectCancelledEvent.OutputObject
   >;
   getEvent(
-    key: "ProjectCompleted"
+    key: "ProjectCompleted",
   ): TypedContractEvent<
     ProjectCompletedEvent.InputTuple,
     ProjectCompletedEvent.OutputTuple,
     ProjectCompletedEvent.OutputObject
   >;
   getEvent(
-    key: "ProjectCreated"
+    key: "ProjectCreated",
   ): TypedContractEvent<
     ProjectCreatedEvent.InputTuple,
     ProjectCreatedEvent.OutputTuple,
     ProjectCreatedEvent.OutputObject
   >;
   getEvent(
-    key: "ProjectFunded"
-  ): TypedContractEvent<
-    ProjectFundedEvent.InputTuple,
-    ProjectFundedEvent.OutputTuple,
-    ProjectFundedEvent.OutputObject
-  >;
+    key: "ProjectFunded",
+  ): TypedContractEvent<ProjectFundedEvent.InputTuple, ProjectFundedEvent.OutputTuple, ProjectFundedEvent.OutputObject>;
   getEvent(
-    key: "ReturnsDistributed"
+    key: "ReturnsDistributed",
   ): TypedContractEvent<
     ReturnsDistributedEvent.InputTuple,
     ReturnsDistributedEvent.OutputTuple,

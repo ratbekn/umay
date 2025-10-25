@@ -9,7 +9,6 @@ import { Toaster } from "react-hot-toast";
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
 
 import { wagmiConfig } from "../services/web3/wagmiConfig";
-import { Header } from "./Header";
 import { ProgressBar } from "./scaffold-eth/ProgressBar";
 
 const queryClient = new QueryClient();

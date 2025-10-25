@@ -1,10 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useAccount } from "wagmi";
+
 import type { NextPage } from "next";
-import { Image } from "next/image";
+import { useRouter } from "next/navigation";
+
+import { useAccount } from "wagmi";
 
 const Home: NextPage = () => {
   const { isConnected, address } = useAccount();
@@ -25,8 +26,8 @@ const Home: NextPage = () => {
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/icon.svg" alt="icon" width={32} height={32}/>
-            <img src="/logo.svg" alt="logo" width={96} height={96}/>
+            <img src="/icon.svg" alt="icon" width={32} height={32} />
+            <img src="/logo.svg" alt="logo" width={96} height={96} />
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <a
@@ -70,8 +71,8 @@ const Home: NextPage = () => {
               <span className="text-primary">On-Chain.</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Tokenized farming projects powered by smart-contract escrow, insurance options, and
-              transparent on-chain reporting. Start small. Track everything.
+              Tokenized farming projects powered by smart-contract escrow, insurance options, and transparent on-chain
+              reporting. Start small. Track everything.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <button className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2">
@@ -116,16 +117,14 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-       <section className="py-20 md:py-24 bg-card" eid="new-section">
+      <section className="py-20 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div className="space-y-4">
-              <h2 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">
-                Why Agriculture?
-              </h2>
+              <h2 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">Why Agriculture?</h2>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                Agriculture is a real, essential industry with consistent global demand—making it
-                one of the most stable real-world asset classes.
+                Agriculture is a real, essential industry with consistent global demand—making it one of the most stable
+                real-world asset classes.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 mt-16">
@@ -134,18 +133,14 @@ const Home: NextPage = () => {
                   <span className="text-primary text-2xl">💰</span>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground">Real Yield</h3>
-                <p className="text-muted-foreground">
-                  Returns backed by real production, not speculation.
-                </p>
+                <p className="text-muted-foreground">Returns backed by real production, not speculation.</p>
               </div>
               <div className="text-center space-y-4 p-6 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-accent text-2xl">🌍</span>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground">Evergreen Demand</h3>
-                <p className="text-muted-foreground">
-                  Food demand grows every year—independent of crypto cycles.
-                </p>
+                <p className="text-muted-foreground">Food demand grows every year—independent of crypto cycles.</p>
               </div>
               <div className="text-center space-y-4 p-6 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -159,142 +154,81 @@ const Home: NextPage = () => {
             </div>
             <div className="mt-12 p-6 rounded-xl bg-primary/5 border border-primary/20">
               <p className="text-lg text-foreground max-w-3xl mx-auto text-center">
-                Umay connects capital to real farming projects in a transparent on-chain way—opening
-                agriculture access to investors worldwide.
+                Umay connects capital to real farming projects in a transparent on-chain way—opening agriculture access
+                to investors worldwide.
               </p>
             </div>
           </div>
         </div>
       </section>
-      <section id="how-it-works" className="py-20 md:py-24 bg-background" eid="e92">
-        <div className="container mx-auto px-4" eid="e93">
-          <div className="max-w-5xl mx-auto" eid="e94">
-            <div className="text-center space-y-4 mb-16" eid="e95">
-              <h2
-                className="font-heading text-4xl md:text-5xl font-semibold text-foreground"
-                eid="e96"
-              >
-                How Umay Works
-              </h2>
-              <p className="text-lg md:text-xl text-muted-foreground" eid="e97">
+      <section id="how-it-works" className="py-20 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center space-y-4 mb-16">
+              <h2 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">How Umay Works</h2>
+              <p className="text-lg md:text-xl text-muted-foreground">
                 From real farms to real yield—in 5 simple steps.
               </p>
             </div>
-            <div className="space-y-8" eid="e98">
-              <div
-                className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow"
-                eid="e99"
-              >
-                <div
-                  className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center"
-                  eid="e100"
-                >
-                  <span className="text-primary text-xl font-bold" eid="e101">
-                    1
-                  </span>
+            <div className="space-y-8">
+              <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <span className="text-primary text-xl font-bold">1</span>
                 </div>
-                <div className="flex-1" eid="e102">
-                  <h3 className="text-xl font-semibold text-foreground mb-2" eid="e103">
-                    We Analyze Agricultural Markets
-                  </h3>
-                  <p className="text-muted-foreground" eid="e104">
-                    Our team identifies profitable farming opportunities like wheat, barley, and
-                    livestock projects.
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">We Analyze Agricultural Markets</h3>
+                  <p className="text-muted-foreground">
+                    Our team identifies profitable farming opportunities like wheat, barley, and livestock projects.
                   </p>
                 </div>
               </div>
-              <div
-                className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow"
-                eid="e105"
-              >
-                <div
-                  className="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center"
-                  eid="e106"
-                >
-                  <span className="text-accent text-xl font-bold" eid="e107">
-                    2
-                  </span>
+              <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                  <span className="text-accent text-xl font-bold">2</span>
                 </div>
-                <div className="flex-1" eid="e108">
-                  <h3 className="text-xl font-semibold text-foreground mb-2" eid="e109">
-                    We Partner With Verified Farms
-                  </h3>
-                  <p className="text-muted-foreground" eid="e110">
-                    Each project is assigned to top-performing farms from our vetted network of 100+
-                    partners.
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">We Partner With Verified Farms</h3>
+                  <p className="text-muted-foreground">
+                    Each project is assigned to top-performing farms from our vetted network of 100+ partners.
                   </p>
                 </div>
               </div>
-              <div
-                className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow"
-                eid="e111"
-              >
-                <div
-                  className="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center"
-                  eid="e112"
-                >
-                  <span className="text-secondary text-xl font-bold" eid="e113">
-                    3
-                  </span>
+              <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
+                <div className="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+                  <span className="text-secondary text-xl font-bold">3</span>
                 </div>
-                <div className="flex-1" eid="e114">
-                  <h3 className="text-xl font-semibold text-foreground mb-2" eid="e115">
-                    Project Gets Tokenized
-                  </h3>
-                  <p className="text-muted-foreground" eid="e116">
-                    Each investment is split into project tokens, making it accessible starting from
-                    low entry amounts.
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Project Gets Tokenized</h3>
+                  <p className="text-muted-foreground">
+                    Each investment is split into project tokens, making it accessible starting from low entry amounts.
                   </p>
                 </div>
               </div>
-              <div
-                className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow"
-                eid="e117"
-              >
-                <div
-                  className="flex-shrink-0 w-12 h-12 bg-chart-4/10 rounded-full flex items-center justify-center"
-                  eid="e118"
-                >
-                  <span className="text-chart-4 text-xl font-bold" eid="e119">
-                    4
-                  </span>
+              <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
+                <div className="flex-shrink-0 w-12 h-12 bg-chart-4/10 rounded-full flex items-center justify-center">
+                  <span className="text-chart-4 text-xl font-bold">4</span>
                 </div>
-                <div className="flex-1" eid="e120">
-                  <h3 className="text-xl font-semibold text-foreground mb-2" eid="e121">
-                    Funds Locked in Smart-Contract Escrow
-                  </h3>
-                  <p className="text-muted-foreground" eid="e122">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Funds Locked in Smart-Contract Escrow</h3>
+                  <p className="text-muted-foreground">
                     Investor capital is secured and only released based on project milestones.
                   </p>
                 </div>
               </div>
-              <div
-                className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow"
-                eid="e123"
-              >
-                <div
-                  className="flex-shrink-0 w-12 h-12 bg-chart-5/10 rounded-full flex items-center justify-center"
-                  eid="e124"
-                >
-                  <span className="text-chart-5 text-xl font-bold" eid="e125">
-                    5
-                  </span>
+              <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
+                <div className="flex-shrink-0 w-12 h-12 bg-chart-5/10 rounded-full flex items-center justify-center">
+                  <span className="text-chart-5 text-xl font-bold">5</span>
                 </div>
-                <div className="flex-1" eid="e126">
-                  <h3 className="text-xl font-semibold text-foreground mb-2" eid="e127">
-                    Harvest → Revenue → Payouts
-                  </h3>
-                  <p className="text-muted-foreground" eid="e128">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Harvest → Revenue → Payouts</h3>
+                  <p className="text-muted-foreground">
                     After production and sale, returns are distributed proportionally to investors.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="text-center mt-12" eid="e129">
-              <button
-                className="px-8 py-3 border border-border bg-background text-foreground text-lg font-semibold rounded-lg hover:bg-card transition-colors flex items-center gap-2 mx-auto"
-                eid="e130"
-              >
+            <div className="text-center mt-12">
+              <button className="px-8 py-3 border border-border bg-background text-foreground text-lg font-semibold rounded-lg hover:bg-card transition-colors flex items-center gap-2 mx-auto">
                 See Example Projects →
               </button>
             </div>
@@ -308,18 +242,14 @@ const Home: NextPage = () => {
               <h2 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">
                 Why Investors Choose Umay
               </h2>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Designed for trust. Built for performance.
-              </p>
+              <p className="text-lg md:text-xl text-muted-foreground">Designed for trust. Built for performance.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                   <span className="text-primary text-2xl">🔍</span>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Transparent by Design
-                </h3>
+                <h3 className="text-xl font-semibold text-foreground mb-3">Transparent by Design</h3>
                 <p className="text-muted-foreground">
                   Every project is on-chain. Track funding, milestones, and returns in real time.
                 </p>
@@ -330,8 +260,7 @@ const Home: NextPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">Protected Capital</h3>
                 <p className="text-muted-foreground">
-                  Smart-contract escrow ensures funds are released only when project milestones are
-                  delivered.
+                  Smart-contract escrow ensures funds are released only when project milestones are delivered.
                 </p>
               </div>
               <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
@@ -340,8 +269,7 @@ const Home: NextPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">Risk-Managed Yield</h3>
                 <p className="text-muted-foreground">
-                  Projects are diversified across partner farms and include optional insurance
-                  protection.
+                  Projects are diversified across partner farms and include optional insurance protection.
                 </p>
               </div>
               <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
@@ -349,21 +277,18 @@ const Home: NextPage = () => {
                   <span className="text-chart-4 text-2xl">🌾</span>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">Real-World Results</h3>
-                <p className="text-muted-foreground">
-                  Backed by real agricultural production—not market speculation.
-                </p>
+                <p className="text-muted-foreground">Backed by real agricultural production—not market speculation.</p>
               </div>
             </div>
             <div className="text-center p-6 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/20">
               <p className="text-lg text-foreground font-medium">
-                Umay is where Web3 meets real assets—making agriculture investments simple and
-                secure.
+                Umay is where Web3 meets real assets—making agriculture investments simple and secure.
               </p>
             </div>
           </div>
         </div>
       </section>
-       <section id="projects" className="py-20 md:py-24 bg-background">
+      <section id="projects" className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-16">
@@ -390,9 +315,7 @@ const Home: NextPage = () => {
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Region:</span>
-                    <span className="text-foreground font-medium">
-                      Naryn Valley, Kyrgyz Republic
-                    </span>
+                    <span className="text-foreground font-medium">Naryn Valley, Kyrgyz Republic</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Term:</span>
@@ -427,14 +350,10 @@ const Home: NextPage = () => {
                     <span className="text-accent text-xl">🍯</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">
-                      ✓ Live
-                    </span>
+                    <span className="px-2 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">✓ Live</span>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  Organic Honey Expansion
-                </h3>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Organic Honey Expansion</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Region:</span>
@@ -478,9 +397,7 @@ const Home: NextPage = () => {
                     </span>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  Pasture-Fed Cattle Breeding
-                </h3>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Pasture-Fed Cattle Breeding</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Region:</span>
@@ -529,18 +446,14 @@ const Home: NextPage = () => {
               <h2 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">
                 Built for Trust. Secured by Technology.
               </h2>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Your investment is protected at every stage.
-              </p>
+              <p className="text-lg md:text-xl text-muted-foreground">Your investment is protected at every stage.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                   <span className="text-primary text-2xl">🔒</span>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Smart-Contract Escrow
-                </h3>
+                <h3 className="text-xl font-semibold text-foreground mb-3">Smart-Contract Escrow</h3>
                 <p className="text-muted-foreground">
                   Funds are locked on-chain and released only when verified milestones are met.
                 </p>
@@ -558,9 +471,7 @@ const Home: NextPage = () => {
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
                   <span className="text-accent text-2xl">🔍</span>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  On-Chain Transparency
-                </h3>
+                <h3 className="text-xl font-semibold text-foreground mb-3">On-Chain Transparency</h3>
                 <p className="text-muted-foreground">
                   Every transaction and payout is visible on the blockchain—no hidden flows.
                 </p>
@@ -571,17 +482,14 @@ const Home: NextPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">Farm Verification</h3>
                 <p className="text-muted-foreground">
-                  Each partner farm goes through identity, land ownership, and production history
-                  checks.
+                  Each partner farm goes through identity, land ownership, and production history checks.
                 </p>
               </div>
               <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-chart-5/10 rounded-full flex items-center justify-center mb-6">
                   <span className="text-chart-5 text-2xl">📊</span>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Diversified Allocation
-                </h3>
+                <h3 className="text-xl font-semibold text-foreground mb-3">Diversified Allocation</h3>
                 <p className="text-muted-foreground">
                   Your investment is allocated across multiple farms to minimize risk exposure.
                 </p>
@@ -595,7 +503,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-       <section className="py-20 md:py-24 bg-background">
+      <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-16">
@@ -620,9 +528,7 @@ const Home: NextPage = () => {
                 <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-secondary text-2xl font-bold">2</span>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Production & Monitoring
-                </h3>
+                <h3 className="text-xl font-semibold text-foreground mb-3">Production & Monitoring</h3>
                 <p className="text-muted-foreground">
                   Farms execute the project. Progress and milestones are tracked openly.
                 </p>
@@ -688,9 +594,7 @@ const Home: NextPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">
-                Roadmap
-              </h2>
+              <h2 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">Roadmap</h2>
               <p className="text-lg md:text-xl text-muted-foreground">
                 Growing real-world adoption through secure tokenized agriculture.
               </p>
@@ -708,9 +612,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-muted-foreground">
-                    Farm network setup • RWA model • Smart contract escrow
-                  </p>
+                  <p className="text-muted-foreground">Farm network setup • RWA model • Smart contract escrow</p>
                 </div>
               </div>
               <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
@@ -725,9 +627,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-muted-foreground">
-                    First tokenized farm projects • Investor dashboard
-                  </p>
+                  <p className="text-muted-foreground">First tokenized farm projects • Investor dashboard</p>
                 </div>
               </div>
               <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
@@ -742,9 +642,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-muted-foreground">
-                    50+ projects • Insurance rollout • USDT/USDC support
-                  </p>
+                  <p className="text-muted-foreground">50+ projects • Insurance rollout • USDT/USDC support</p>
                 </div>
               </div>
               <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
@@ -759,9 +657,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-muted-foreground">
-                    Secondary marketplace • Automated yield payouts
-                  </p>
+                  <p className="text-muted-foreground">Secondary marketplace • Automated yield payouts</p>
                 </div>
               </div>
               <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
@@ -832,10 +728,9 @@ const Home: NextPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Disclaimer:</strong> Umay is a technology platform
-              providing access to tokenized agricultural projects. Investments involve risk,
-              including possible loss of capital. Returns are not guaranteed. All investors must
-              complete identity verification (KYC/AML).
+              <strong className="text-foreground">Disclaimer:</strong> Umay is a technology platform providing access to
+              tokenized agricultural projects. Investments involve risk, including possible loss of capital. Returns are
+              not guaranteed. All investors must complete identity verification (KYC/AML).
             </p>
           </div>
         </div>
