@@ -1,112 +1,206 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useAccount } from "wagmi";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
+  const { isConnected, address } = useAccount();
+  const router = useRouter();
+  const [isRedirecting, setIsRedirecting] = useState(false);
+
+  useEffect(() => {
+    if (isConnected && address && !isRedirecting) {
+      setIsRedirecting(true);
+      setTimeout(() => {
+        router.push("/app");
+      }, 500);
+    }
+  }, [isConnected, address, router, isRedirecting]);
+
   return (
-    <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-6xl font-bold mb-4">🌾 Umay</span>
-            <span className="block text-2xl mb-2">Agricultural Investment Platform</span>
-            <span className="block text-xl text-center max-w-2xl mx-auto text-base-content/70">
-              Connecting crypto investors with agricultural opportunities in Kyrgyzstan
-            </span>
-          </h1>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative h-[500px] bg-cover bg-center rounded-3xl mx-4 mt-4" style={{backgroundImage: "url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200')"}}>
+        <div className="absolute inset-0 bg-black/40 rounded-3xl" />
+        <div className="relative h-full flex flex-col justify-center px-8 text-white">
+          <h1 className="text-5xl font-bold mb-4">Part of future<br/>Agriculture</h1>
+          <div className="bg-green-500 text-white px-6 py-3 rounded-xl inline-block w-fit">
+            <div className="text-sm font-semibold">200+</div>
+            <div className="text-xs">FARMERS</div>
+          </div>
         </div>
+      </section>
 
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row max-w-6xl mx-auto">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-xl">
-              <span className="text-5xl mb-4">💰</span>
-              <h3 className="text-xl font-bold mb-4">For Investors</h3>
-              <p className="mb-6">Browse agricultural projects, invest with stablecoins, and earn returns</p>
-              <Link
-                href="/projects"
-                className="btn btn-primary"
-              >
-                Explore Projects
-              </Link>
-            </div>
+      {/* Business Overview */}
+      <section className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8">
+        <div>
+          <h2 className="text-3xl font-bold text-green-600 mb-6">🌾 UMAY<br/>Business Overview</h2>
+          <div className="space-y-4 text-gray-700">
+            <p>Umay is a decentralized platform that connects crypto investors with agricultural opportunities in Kyrgyzstan.</p>
+            <p>Our platform enables transparent, secure, and efficient investment in agricultural projects using blockchain technology and stablecoins.</p>
+            <p>We make it a complete solution for both farmers seeking funding and investors looking for agricultural investment opportunities.</p>
+            <p>With Umay, you can invest in real agricultural projects, track your returns, and support sustainable farming practices in Kyrgyzstan.</p>
+          </div>
+        </div>
+        <div className="bg-gray-900 rounded-3xl h-80"></div>
+      </section>
 
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-xl">
-              <span className="text-5xl mb-4">🚜</span>
-              <h3 className="text-xl font-bold mb-4">For Farmers</h3>
-              <p className="mb-6">Raise funds for your agricultural projects quickly and transparently</p>
-              <Link
-                href="/create-project"
-                className="btn btn-secondary"
-              >
-                Create Project
-              </Link>
+      {/* Our Mission */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-green-600 mb-8">Our mission</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-gray-900 text-white p-6 rounded-2xl">
+            <h3 className="text-xl font-bold mb-3">DECENTRALIZED FUNDING</h3>
+            <p className="text-sm text-gray-300">Connect farmers directly with global investors through blockchain technology</p>
+          </div>
+          <div className="bg-gray-900 text-white p-6 rounded-2xl">
+            <h3 className="text-green-500 text-xl font-bold mb-3">TRANSPARENT ECOSYSTEM</h3>
+            <p className="text-sm text-gray-300">All transactions and project progress recorded on-chain for complete transparency</p>
+          </div>
+          <div className="bg-gray-900 text-white p-6 rounded-2xl">
+            <h3 className="text-xl font-bold mb-3">SUSTAINABLE GROWTH</h3>
+            <p className="text-sm text-gray-300">Support agricultural development while earning returns on your investment</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Products */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-green-600 text-center mb-12">Our products</h2>
+        <div className="space-y-6">
+          <div className="bg-gray-900 text-white p-8 rounded-3xl flex items-center gap-6">
+            <div className="text-6xl">🌾</div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold mb-2">Barley</h3>
+              <p className="text-sm text-gray-300">Invest in barley production projects with transparent tracking from seed to harvest. Our farmers use sustainable practices to ensure high-quality yields and consistent returns for investors.</p>
             </div>
           </div>
-
-          <div className="mt-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">How It Works</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-primary text-primary-content w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  1
-                </div>
-                <h4 className="font-bold mb-2">Create or Browse</h4>
-                <p className="text-sm">Farmers create projects, investors browse opportunities</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-primary text-primary-content w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  2
-                </div>
-                <h4 className="font-bold mb-2">Invest with Stablecoins</h4>
-                <p className="text-sm">Investors fund projects using USDT or other stablecoins</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-primary text-primary-content w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  3
-                </div>
-                <h4 className="font-bold mb-2">Earn Returns</h4>
-                <p className="text-sm">Project completes, returns distributed to investors</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-16 bg-base-100 rounded-3xl p-8 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">Why Umay?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex gap-3">
-                <span className="text-2xl">✅</span>
-                <div>
-                  <h4 className="font-bold">Transparent</h4>
-                  <p className="text-sm">All transactions recorded on blockchain</p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <span className="text-2xl">⚡</span>
-                <div>
-                  <h4 className="font-bold">Fast Funding</h4>
-                  <p className="text-sm">Quick access to capital for farmers</p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <span className="text-2xl">🛡️</span>
-                <div>
-                  <h4 className="font-bold">Secure</h4>
-                  <p className="text-sm">Smart contract-based protection</p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <span className="text-2xl">🌍</span>
-                <div>
-                  <h4 className="font-bold">Global Access</h4>
-                  <p className="text-sm">Connect investors worldwide with Kyrgyz agriculture</p>
-                </div>
-              </div>
+          <div className="bg-gray-900 text-white p-8 rounded-3xl flex items-center gap-6">
+            <div className="text-6xl">🐑</div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold mb-2">Sheep</h3>
+              <p className="text-sm text-gray-300">Support sheep farming projects in Kyrgyzstan's highland regions. Invest in wool and meat production with full traceability and fair returns for both farmers and investors.</p>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* Statistics */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <div className="bg-cover bg-center rounded-3xl p-12 relative h-96" style={{backgroundImage: "url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1200')"}}>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent rounded-3xl" />
+          <div className="relative">
+            <h2 className="text-3xl font-bold text-green-500 mb-8">Статистика</h2>
+            <div className="space-y-3 text-white">
+              <div className="text-xl"><span className="font-bold text-2xl">2019</span> - Founded</div>
+              <div className="text-xl"><span className="font-bold text-2xl">+128K</span> - Active Users</div>
+              <div className="text-xl"><span className="font-bold text-2xl">245K</span> - Projects Funded</div>
+              <div className="text-xl"><span className="font-bold text-2xl">+33K</span> - Total Investments</div>
+              <div className="text-xl"><span className="font-bold text-2xl">+14%</span> - Average Returns</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section className="bg-green-500 py-24 my-16">
+        <div className="max-w-7xl mx-auto px-4 text-center text-white">
+          <h2 className="text-4xl font-bold mb-4">Как это работает? (Схема)</h2>
+          <p className="text-xl opacity-90">Simple and transparent investment process</p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="max-w-4xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-green-600 text-center mb-8">FAQ</h2>
+        <div className="space-y-4">
+          {[
+            { q: "Question 1", a: "Q1" },
+            { q: "question 2", a: "Q2" },
+            { q: "question 3", a: "Q3" },
+            { q: "question 4", a: "Q4" }
+          ].map((item, i) => (
+            <div key={i} className="bg-white border-2 border-green-500 rounded-xl p-6">
+              <div className="flex justify-between items-center">
+                <h3 className="font-semibold">{item.q}</h3>
+                <span className="text-green-500 font-bold">{item.a}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <div className="bg-cover bg-center rounded-3xl h-96 flex items-center justify-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1589395937772-9c0d0d6e593b?w=1200')"}}>
+          <div className="bg-black/50 px-12 py-6 rounded-2xl text-white text-center">
+            <div className="text-6xl mb-4">▶️</div>
+            <p className="text-2xl font-bold">intro for us</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="max-w-7xl mx-auto px-4 py-24">
+        <div className="bg-cover bg-center rounded-3xl p-16 relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200')"}}>
+          <div className="absolute inset-0 bg-black/40 rounded-3xl" />
+          <div className="relative text-center text-white">
+            <h2 className="text-4xl font-bold mb-2">Top model for agriculture</h2>
+            <p className="text-2xl mb-8">Ready, Steady, Go</p>
+            <div className="flex gap-4 justify-center">
+              <input type="email" placeholder="Email" className="px-6 py-3 rounded-full w-64" />
+              <button className="bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-green-500 font-bold text-xl mb-4">🌾 UMAY</h3>
+            <p className="text-sm text-gray-400 mb-4">Decentralized agricultural investment platform for Kyrgyzstan</p>
+            <div className="flex gap-3">
+              {["📘", "🐦", "📷", "💼", "📺"].map((icon, i) => (
+                <div key={i} className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-xs">{icon}</div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Company</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>About Us</li>
+              <li>Our Blog</li>
+              <li>Contact Us</li>
+              <li>Invest Contact</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Where to Buy</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>Buy the direct</li>
+              <li>Go for dealer</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Popular Products</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>Sheep</li>
+              <li>Barley</li>
+              <li>Wheat</li>
+            </ul>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-gray-800 text-sm text-gray-400 text-center">
+          Copyright 2025 Umay
+        </div>
+      </footer>
+    </div>
   );
 };
 
