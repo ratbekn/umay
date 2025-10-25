@@ -1,25 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import type { NextPage } from "next";
 import { useRouter } from "next/navigation";
 
 import { useAccount } from "wagmi";
 
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 const Home: NextPage = () => {
   const { isConnected, address } = useAccount();
   const router = useRouter();
-  const [isRedirecting, setIsRedirecting] = useState(false);
+  //const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
-    if (isConnected && address && !isRedirecting) {
+    /*if (isConnected && address && !isRedirecting) {
       setIsRedirecting(true);
-      setTimeout(() => {
-        router.push("/app");
-      }, 500);
-    }
-  }, [isConnected, address, router, isRedirecting]);
+      //router.push("/app");
+    }*/
+  }, [
+    isConnected,
+    address,
+    router,
+    // , isRedirecting
+  ]);
+
+  const redirectToApp = () => {
+    router.push("/app");
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -55,9 +64,47 @@ const Home: NextPage = () => {
               Roadmap
             </a>
           </nav>
-          <button className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2">
-            🚀 Invest Now
-          </button>
+          <ConnectButton.Custom>
+            {({ account, chain, openConnectModal, mounted }) => {
+              const ready = mounted;
+              const connected = ready && account && chain;
+
+              return (
+                <div
+                  {...(!ready && {
+                    "aria-hidden": true,
+                    style: {
+                      opacity: 0,
+                      pointerEvents: "none",
+                      userSelect: "none",
+                    },
+                  })}
+                >
+                  {(() => {
+                    if (!connected) {
+                      return (
+                        <button
+                          onClick={openConnectModal}
+                          className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                        >
+                          Connect Wallet
+                        </button>
+                      );
+                    }
+
+                    return (
+                      <button
+                        onClick={redirectToApp}
+                        className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                      >
+                        🚀 Invest Now
+                      </button>
+                    );
+                  })()}
+                </div>
+              );
+            }}
+          </ConnectButton.Custom>
         </div>
       </header>
       <section className="relative overflow-hidden py-20 md:py-32">
@@ -75,9 +122,47 @@ const Home: NextPage = () => {
               reporting. Start small. Track everything.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <button className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2">
-                🚀 Invest Now
-              </button>
+              <ConnectButton.Custom>
+                {({ account, chain, openConnectModal, mounted }) => {
+                  const ready = mounted;
+                  const connected = ready && account && chain;
+
+                  return (
+                    <div
+                      {...(!ready && {
+                        "aria-hidden": true,
+                        style: {
+                          opacity: 0,
+                          pointerEvents: "none",
+                          userSelect: "none",
+                        },
+                      })}
+                    >
+                      {(() => {
+                        if (!connected) {
+                          return (
+                            <button
+                              onClick={openConnectModal}
+                              className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                            >
+                              Connect Wallet
+                            </button>
+                          );
+                        }
+
+                        return (
+                          <button
+                            onClick={redirectToApp}
+                            className="px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                          >
+                            🚀 Invest Now
+                          </button>
+                        );
+                      })()}
+                    </div>
+                  );
+                }}
+              </ConnectButton.Custom>
               <div className="flex items-center gap-3">
                 <button className="px-8 py-3 border border-border bg-background text-foreground text-lg font-semibold rounded-lg hover:bg-card transition-colors flex items-center gap-2">
                   👁️ Explore Projects
@@ -340,9 +425,49 @@ const Home: NextPage = () => {
                     <span className="text-xs text-muted-foreground">Insurance</span>
                   </div>
                 </div>
-                <button className="w-full mt-4 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-                  Invest Now
-                </button>
+                <div className="mt-4">
+                  <ConnectButton.Custom>
+                    {({ account, chain, openConnectModal, mounted }) => {
+                      const ready = mounted;
+                      const connected = ready && account && chain;
+
+                      return (
+                        <div
+                          {...(!ready && {
+                            "aria-hidden": true,
+                            style: {
+                              opacity: 0,
+                              pointerEvents: "none",
+                              userSelect: "none",
+                            },
+                          })}
+                        >
+                          {(() => {
+                            if (!connected) {
+                              return (
+                                <button
+                                  onClick={openConnectModal}
+                                  className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                                >
+                                  Connect Wallet
+                                </button>
+                              );
+                            }
+
+                            return (
+                              <button
+                                onClick={redirectToApp}
+                                className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                              >
+                                🚀 Invest Now
+                              </button>
+                            );
+                          })()}
+                        </div>
+                      );
+                    }}
+                  </ConnectButton.Custom>
+                </div>
               </div>
               <div className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow space-y-4">
                 <div className="flex items-center justify-between mb-4">
@@ -382,9 +507,49 @@ const Home: NextPage = () => {
                     <span className="text-xs text-muted-foreground">Insurance</span>
                   </div>
                 </div>
-                <button className="w-full mt-4 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-                  Invest Now
-                </button>
+                <div className="mt-4">
+                  <ConnectButton.Custom>
+                    {({ account, chain, openConnectModal, mounted }) => {
+                      const ready = mounted;
+                      const connected = ready && account && chain;
+
+                      return (
+                        <div
+                          {...(!ready && {
+                            "aria-hidden": true,
+                            style: {
+                              opacity: 0,
+                              pointerEvents: "none",
+                              userSelect: "none",
+                            },
+                          })}
+                        >
+                          {(() => {
+                            if (!connected) {
+                              return (
+                                <button
+                                  onClick={openConnectModal}
+                                  className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                                >
+                                  Connect Wallet
+                                </button>
+                              );
+                            }
+
+                            return (
+                              <button
+                                onClick={redirectToApp}
+                                className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                              >
+                                🚀 Invest Now
+                              </button>
+                            );
+                          })()}
+                        </div>
+                      );
+                    }}
+                  </ConnectButton.Custom>
+                </div>
               </div>
               <div className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow space-y-4">
                 <div className="flex items-center justify-between mb-4">
@@ -426,9 +591,49 @@ const Home: NextPage = () => {
                     <span className="text-xs text-muted-foreground">Insurance</span>
                   </div>
                 </div>
-                <button className="w-full mt-4 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-                  Invest Now
-                </button>
+                <div className="mt-4">
+                  <ConnectButton.Custom>
+                    {({ account, chain, openConnectModal, mounted }) => {
+                      const ready = mounted;
+                      const connected = ready && account && chain;
+
+                      return (
+                        <div
+                          {...(!ready && {
+                            "aria-hidden": true,
+                            style: {
+                              opacity: 0,
+                              pointerEvents: "none",
+                              userSelect: "none",
+                            },
+                          })}
+                        >
+                          {(() => {
+                            if (!connected) {
+                              return (
+                                <button
+                                  onClick={openConnectModal}
+                                  className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                                >
+                                  Connect Wallet
+                                </button>
+                              );
+                            }
+
+                            return (
+                              <button
+                                onClick={redirectToApp}
+                                className="flex justify-center w-full px-8 py-3 bg-gradient-to-br from-primary to-primary/90 text-white text-lg font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+                              >
+                                🚀 Invest Now
+                              </button>
+                            );
+                          })()}
+                        </div>
+                      );
+                    }}
+                  </ConnectButton.Custom>
+                </div>
               </div>
             </div>
             <div className="text-center">
@@ -696,9 +901,47 @@ const Home: NextPage = () => {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
-              <button className="px-10 py-4 bg-gradient-to-br from-primary to-primary/90 text-white text-xl font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-3">
-                🚀 Invest Now
-              </button>
+              <ConnectButton.Custom>
+                {({ account, chain, openConnectModal, mounted }) => {
+                  const ready = mounted;
+                  const connected = ready && account && chain;
+
+                  return (
+                    <div
+                      {...(!ready && {
+                        "aria-hidden": true,
+                        style: {
+                          opacity: 0,
+                          pointerEvents: "none",
+                          userSelect: "none",
+                        },
+                      })}
+                    >
+                      {(() => {
+                        if (!connected) {
+                          return (
+                            <button
+                              onClick={openConnectModal}
+                              className="px-10 py-4 bg-gradient-to-br from-primary to-primary/90 text-white text-xl font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-3"
+                            >
+                              Connect Wallet
+                            </button>
+                          );
+                        }
+
+                        return (
+                          <button
+                            onClick={redirectToApp}
+                            className="px-10 py-4 bg-gradient-to-br from-primary to-primary/90 text-white text-xl font-semibold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-200 flex items-center gap-3"
+                          >
+                            🚀 Invest Now
+                          </button>
+                        );
+                      })()}
+                    </div>
+                  );
+                }}
+              </ConnectButton.Custom>
               <button className="px-10 py-4 border border-border bg-background text-foreground text-xl font-semibold rounded-lg hover:bg-card transition-colors flex items-center gap-3">
                 👁️ Explore Projects →
               </button>
