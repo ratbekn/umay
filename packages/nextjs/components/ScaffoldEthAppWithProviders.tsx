@@ -24,7 +24,6 @@ export const ScaffoldEthAppWithProviders = ({ children }: { children: React.Reac
         <ProgressBar />
         <RainbowKitProvider theme={isDarkMode ? darkTheme() : lightTheme()} avatar={() => <div />}>
           <div className="flex flex-col min-h-screen">
-            <Header />
             <main className="relative flex flex-col flex-1">{children}</main>
           </div>
           <Toaster />
