@@ -1,8 +1,10 @@
 "use client";
 
-import NProgress from "nprogress";
 import { useEffect } from "react";
+
 import { usePathname } from "next/navigation";
+
+import NProgress from "nprogress";
 
 export const ProgressBar = () => {
   const pathname = usePathname();

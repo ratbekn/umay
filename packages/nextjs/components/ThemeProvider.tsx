@@ -1,7 +1,8 @@
 "use client";
 
-import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ReactNode } from "react";
+
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export const ThemeProvider = ({ children, enableSystem }: { children: ReactNode; enableSystem?: boolean }) => {
   return (
