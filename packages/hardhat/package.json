@@ -1,56 +1,20 @@
 {
-  "name": "@se-2/hardhat",
-  "version": "0.0.1",
+  "name": "hmp-hardhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "chain": "hardhat node --network hardhat --no-deploy",
-    "fork": "hardhat node --fork https://eth-mainnet.alchemyapi.io/v2/YOUR_ALCHEMY_KEY",
-    "test": "REPORT_GAS=true hardhat test --network hardhat",
-    "compile": "hardhat compile",
-    "deploy": "hardhat deploy",
-    "deploy:verify": "hardhat deploy --write true && hardhat etherscan-verify --api-key $ETHERSCAN_API_KEY",
-    "verify": "hardhat etherscan-verify --api-key $ETHERSCAN_API_KEY",
-    "hardhat-verify": "hardhat verify",
-    "generate": "hardhat run scripts/generateAccount.ts",
-    "account": "hardhat run scripts/listAccount.ts",
-    "flatten": "hardhat flatten",
-    "format": "prettier --write .",
-    "lint": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore ./*.ts ./deploy/**/*.ts ./scripts/**/*.ts ./test/**/*.ts",
-    "lint-staged": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "dotenv": "^17.2.3",
+    "hardhat": "^2.26.3"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.9.3",
-    "dotenv": "^16.3.1",
-    "envfile": "^6.18.0",
-    "qrcode": "^1.5.3"
-  },
-  "devDependencies": {
-    "@ethersproject/abi": "^5.7.0",
-    "@ethersproject/providers": "^5.7.2",
-    "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
-    "@nomicfoundation/hardhat-ethers": "^3.0.4",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.9",
-    "@nomicfoundation/hardhat-verify": "^1.1.1",
-    "@typechain/ethers-v6": "^0.5.1",
-    "@typechain/hardhat": "^9.1.0",
-    "@types/chai": "^4.3.6",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^20.5.9",
-    "@types/qrcode": "^1",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "chai": "^4.3.8",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "ethers": "^6.7.1",
-    "hardhat": "^2.17.3",
-    "hardhat-deploy": "^0.12.0",
-    "hardhat-deploy-ethers": "^0.4.1",
-    "hardhat-gas-reporter": "^1.0.9",
-    "prettier": "^3.0.3",
-    "solidity-coverage": "^0.8.5",
-    "ts-node": "^10.9.1",
-    "typechain": "^8.3.1",
-    "typescript": "^5.2.2"
+    "@openzeppelin/contracts": "^5.0.2"
   }
 }
