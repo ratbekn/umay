@@ -9,13 +9,6 @@ import { SwitchTheme } from "./SwitchTheme";
 export const Header = () => {
   const pathname = usePathname();
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/create-project", label: "Create Project" },
-    { href: "/my-investments", label: "My Investments" },
-  ];
-
   return (
     <div className="navbar bg-base-100 border-b border-base-300 sticky top-0 z-50">
       <div className="navbar-start">
@@ -31,30 +24,10 @@ export const Header = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
           </label>
-          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52">
-            {navLinks.map(link => (
-              <li key={link.href}>
-                <Link href={link.href} className={pathname === link.href ? "active" : ""}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
         <Link href="/" className="btn btn-ghost normal-case text-xl">
           🌾 Umay
         </Link>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {navLinks.map(link => (
-            <li key={link.href}>
-              <Link href={link.href} className={pathname === link.href ? "active" : ""}>
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
       </div>
       <div className="navbar-end gap-2">
         <SwitchTheme />
