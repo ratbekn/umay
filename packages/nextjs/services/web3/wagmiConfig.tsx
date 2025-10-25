@@ -27,5 +27,9 @@ const getConnectors = () => {
 export const wagmiConfig = createConfig({
   connectors: getConnectors(),
   chains: [hardhat, sepolia],
+  transports: {
+    [hardhat.id]: http(),
+    [sepolia.id]: http(),
+  },
   ssr: true,
 });

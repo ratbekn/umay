@@ -5,11 +5,12 @@ import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useTheme } from "next-themes";
 import { Toaster } from "react-hot-toast";
-import { Header } from "~~/components/Header";
-import { ProgressBar } from "~~/components/scaffold-eth/ProgressBar";
-import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
+
+import { wagmiConfig } from "../services/web3/wagmiConfig";
+import { Header } from "./Header";
+import { ProgressBar } from "./scaffold-eth/ProgressBar";
 
 const queryClient = new QueryClient();
 
