@@ -1,9 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useAccount } from "wagmi";
+
 import type { NextPage } from "next";
+import { useRouter } from "next/navigation";
+
+import { useAccount } from "wagmi";
 
 const AppPage: NextPage = () => {
   const { address, isConnected } = useAccount();

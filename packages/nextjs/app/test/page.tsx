@@ -34,9 +34,7 @@ const TestPage: NextPage = () => {
               <button className="px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50">
                 Login
               </button>
-              <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-                Invest Now
-              </button>
+              <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Invest Now</button>
             </div>
           </div>
         </div>
@@ -54,9 +52,8 @@ const TestPage: NextPage = () => {
                   Invest in Kyrgyzstan's Agricultural Future
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Connect with profitable agricultural projects in the heart of Central Asia.
-                  Support sustainable farming while earning attractive returns from Kyrgyzstan's
-                  fertile valleys.
+                  Connect with profitable agricultural projects in the heart of Central Asia. Support sustainable
+                  farming while earning attractive returns from Kyrgyzstan's fertile valleys.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 shadow-lg">
@@ -100,12 +97,10 @@ const TestPage: NextPage = () => {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Why Invest in Kyrgyz Agriculture?
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Why Invest in Kyrgyz Agriculture?</h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Kyrgyzstan offers unique advantages for agricultural investment with its pristine
-                environment, low costs, and growing export markets.
+                Kyrgyzstan offers unique advantages for agricultural investment with its pristine environment, low
+                costs, and growing export markets.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -138,9 +133,7 @@ const TestPage: NextPage = () => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Export Opportunities</h3>
-                <p className="text-gray-600">
-                  Growing demand in China, Russia, and Middle Eastern markets
-                </p>
+                <p className="text-gray-600">Growing demand in China, Russia, and Middle Eastern markets</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-green-100 hover:shadow-lg transition-shadow">
                 <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
@@ -149,9 +142,7 @@ const TestPage: NextPage = () => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Government Support</h3>
-                <p className="text-gray-600">
-                  Favorable policies and incentives for agricultural development
-                </p>
+                <p className="text-gray-600">Favorable policies and incentives for agricultural development</p>
               </div>
             </div>
           </div>
@@ -159,12 +150,9 @@ const TestPage: NextPage = () => {
         <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Featured Investment Projects
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Featured Investment Projects</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Carefully selected agricultural projects offering attractive returns and positive
-                impact
+                Carefully selected agricultural projects offering attractive returns and positive impact
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -178,12 +166,8 @@ const TestPage: NextPage = () => {
                   <div className="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full mb-3">
                     Fruit Production
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Organic Apple Orchard Expansion
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Premium apple varieties for export to premium markets
-                  </p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Organic Apple Orchard Expansion</h3>
+                  <p className="text-gray-600 mb-4">Premium apple varieties for export to premium markets</p>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <div>
                       <div className="text-sm text-gray-500">Target Return</div>
@@ -206,12 +190,8 @@ const TestPage: NextPage = () => {
                   <div className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-3">
                     Greenhouse
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    High-Tech Greenhouse Complex
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Year-round vegetable production with modern technology
-                  </p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">High-Tech Greenhouse Complex</h3>
+                  <p className="text-gray-600 mb-4">Year-round vegetable production with modern technology</p>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <div>
                       <div className="text-sm text-gray-500">Target Return</div>
@@ -234,12 +214,8 @@ const TestPage: NextPage = () => {
                   <div className="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full mb-3">
                     Grain Production
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Sustainable Wheat Farming
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Large-scale wheat production with sustainable practices
-                  </p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Sustainable Wheat Farming</h3>
+                  <p className="text-gray-600 mb-4">Large-scale wheat production with sustainable practices</p>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <div>
                       <div className="text-sm text-gray-500">Target Return</div>
@@ -264,12 +240,10 @@ const TestPage: NextPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                  Transparent Investment Process
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Transparent Investment Process</h2>
                 <p className="text-lg text-gray-600">
-                  Our platform provides complete transparency and regular updates on your
-                  agricultural investments in Kyrgyzstan.
+                  Our platform provides complete transparency and regular updates on your agricultural investments in
+                  Kyrgyzstan.
                 </p>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
@@ -279,8 +253,7 @@ const TestPage: NextPage = () => {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Browse Projects</h3>
                       <p className="text-gray-600">
-                        Explore vetted agricultural projects with detailed financial projections and
-                        impact metrics
+                        Explore vetted agricultural projects with detailed financial projections and impact metrics
                       </p>
                     </div>
                   </div>
@@ -290,9 +263,7 @@ const TestPage: NextPage = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Make Investment</h3>
-                      <p className="text-gray-600">
-                        Invest securely with flexible amounts starting from $1,000
-                      </p>
+                      <p className="text-gray-600">Invest securely with flexible amounts starting from $1,000</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -332,12 +303,9 @@ const TestPage: NextPage = () => {
         <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                What Our Investors Say
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What Our Investors Say</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Join investors from around the world who are earning returns while supporting
-                sustainable agriculture
+                Join investors from around the world who are earning returns while supporting sustainable agriculture
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -354,8 +322,8 @@ const TestPage: NextPage = () => {
                   </div>
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "Excellent returns and I love supporting sustainable agriculture. The transparency
-                  and regular updates give me complete confidence in my investments."
+                  "Excellent returns and I love supporting sustainable agriculture. The transparency and regular updates
+                  give me complete confidence in my investments."
                 </p>
                 <div className="flex space-x-1">
                   <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
@@ -388,8 +356,8 @@ const TestPage: NextPage = () => {
                   </div>
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "Umay has exceeded my expectations. The 19% return on my apple orchard
-                  investment was fantastic, and I'm reinvesting in more projects."
+                  "Umay has exceeded my expectations. The 19% return on my apple orchard investment was fantastic, and
+                  I'm reinvesting in more projects."
                 </p>
                 <div className="flex space-x-1">
                   <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
@@ -422,8 +390,8 @@ const TestPage: NextPage = () => {
                   </div>
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "Perfect diversification for my portfolio. Agricultural investments in Kyrgyzstan
-                  offer stability and growth that traditional markets can't match."
+                  "Perfect diversification for my portfolio. Agricultural investments in Kyrgyzstan offer stability and
+                  growth that traditional markets can't match."
                 </p>
                 <div className="flex space-x-1">
                   <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
@@ -453,8 +421,8 @@ const TestPage: NextPage = () => {
               <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Investing?</h2>
                 <p className="text-xl mb-8 opacity-90">
-                  Join hundreds of investors earning attractive returns while supporting sustainable
-                  agriculture in Kyrgyzstan
+                  Join hundreds of investors earning attractive returns while supporting sustainable agriculture in
+                  Kyrgyzstan
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
@@ -480,8 +448,7 @@ const TestPage: NextPage = () => {
                 <span className="text-2xl font-bold">Umay</span>
               </div>
               <p className="text-gray-400">
-                Connecting global investors with sustainable agricultural opportunities in
-                Kyrgyzstan.
+                Connecting global investors with sustainable agricultural opportunities in Kyrgyzstan.
               </p>
             </div>
             <div>

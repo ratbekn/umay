@@ -1,8 +1,11 @@
-import "@rainbow-me/rainbowkit/styles.css";
-import "../styles/globals.css";
+import { Metadata } from "next";
+
 import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 import { ThemeProvider } from "~~/components/ThemeProvider";
-import { Metadata } from "next";
+
+import "@rainbow-me/rainbowkit/styles.css";
+
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Umay - Agricultural Investment Platform",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import { useTheme } from "next-themes";
 
 export const SwitchTheme = () => {

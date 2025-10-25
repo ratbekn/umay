@@ -1,9 +1,12 @@
 "use client";
 
 import React from "react";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 import { SwitchTheme } from "./SwitchTheme";
 
 export const Header = () => {
