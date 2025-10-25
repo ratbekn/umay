@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import type { NextPage } from "next";
+import { Image } from "next/image";
 
 const Home: NextPage = () => {
   const { isConnected, address } = useAccount();
@@ -23,11 +24,9 @@ const Home: NextPage = () => {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🌱</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">Umay</span>
+          <div className="flex items-center gap-3">
+            <img src="/icon.svg" alt="icon" width={32} height={32}/>
+            <img src="/logo.svg" alt="logo" width={96} height={96}/>
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <a
@@ -65,12 +64,6 @@ const Home: NextPage = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSIjMjJDNTVFIiBzdHJva2Utb3BhY2l0eT0iLjA1IiBzdHJva2Utd2lkdGg9IjIiLz48L2c+PC9zdmc+')] opacity-40" />
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-              <span className="text-primary text-sm">✓</span>
-              <span className="text-sm font-medium text-foreground">
-                Tokenized Real-World Agriculture
-              </span>
-            </div>
             <h1 className="font-heading text-5xl md:text-7xl font-semibold tracking-tight text-foreground">
               Invest in Real Agriculture.
               <br />
@@ -173,7 +166,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="py-20 md:py-24 bg-background" eid="e92">
+      <section id="how-it-works" className="py-20 md:py-24 bg-background" eid="e92">
         <div className="container mx-auto px-4" eid="e93">
           <div className="max-w-5xl mx-auto" eid="e94">
             <div className="text-center space-y-4 mb-16" eid="e95">
@@ -308,7 +301,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="py-20 md:py-24 bg-card">
+      <section id="security" className="py-20 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-4 mb-16">
@@ -370,7 +363,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-       <section className="py-20 md:py-24 bg-background">
+       <section id="projects" className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-16">
@@ -691,7 +684,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="py-20 md:py-24 bg-background">
+      <section id="roadmap" className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-4 mb-16">
@@ -711,7 +704,7 @@ const Home: NextPage = () => {
                   <div className="text-left">
                     <div className="text-sm font-medium text-primary">Q1 2026</div>
                     <div className="text-lg font-semibold text-foreground">Prototype</div>
-                    <div className="text-xs text-primary font-medium">Completed</div>
+                    <div className="text-xs text-primary font-medium">In progress</div>
                   </div>
                 </div>
                 <div className="flex-1">
@@ -726,9 +719,9 @@ const Home: NextPage = () => {
                     <span className="text-secondary text-xl">🔄</span>
                   </div>
                   <div className="text-left">
-                    <div className="text-sm font-medium text-secondary">Q2 2026</div>
+                    <div className="text-sm font-medium text-accent">Q2 2026</div>
                     <div className="text-lg font-semibold text-foreground">MVP Launch</div>
-                    <div className="text-xs text-secondary font-medium">In Progress</div>
+                    <div className="text-xs text-accent font-medium">Planned</div>
                   </div>
                 </div>
                 <div className="flex-1">
@@ -743,9 +736,9 @@ const Home: NextPage = () => {
                     <span className="text-accent text-xl">⏳</span>
                   </div>
                   <div className="text-left">
-                    <div className="text-sm font-medium text-accent">Q3 2026</div>
+                    <div className="text-sm font-medium text-chart-4">Q3 2026</div>
                     <div className="text-lg font-semibold text-foreground">Scale Regionally</div>
-                    <div className="text-xs text-accent font-medium">Planned</div>
+                    <div className="text-xs text-chart-4 font-medium">Planned</div>
                   </div>
                 </div>
                 <div className="flex-1">
