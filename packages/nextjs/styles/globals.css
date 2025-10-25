@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --theme-primary: #10b981;
+}
+
+body {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+label {
+  @apply block;
+}
+
+.btn {
+  @apply shadow-md;
+}
+
+.dropdown-content {
+  @apply shadow-lg;
+}
