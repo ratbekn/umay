@@ -1,64 +1,78 @@
 "use client";
 
-import { useEffect } from "react";
+import { FarmCard } from "../app/components/FormCard"
+import { CustomConnectButton } from "../app/components/CustomButton"
+import { HeroCarousel } from "../app/components/HeroCoursel"
+import { useAccount } from "wagmi"
+import Image from "next/image"
 
-import type { NextPage } from "next";
-import { useRouter } from "next/navigation";
+const farms = [
+  {
+    id: 1,
+    name: "Wheat Harvest 2025",
+    region: "Naryn Valley, Kyrgyz Republic",
+    term: "12 months",
+    projected: "18%",
+    riskLevel: "Low",
+    status:"active"
+  },
+  {
+    id: 2,
+    name: "Organic Honey Expansion",
+    region: "Organic Honey Expansion",
+    term: "10 months",
+    projected: "22%",
+    riskLevel: "Medium",
+    status:"active"
+  },
+  {
+    id: 3,
+    name: "Pasture-Fed Cattle Breeding",
+    region: "Talas Valley",
+    term: "14 months",
+    projected: "20%",
+    riskLevel: "Medium",
+    status:"active"
+  },
+]
 
-import { useAccount } from "wagmi";
+export default function App() {
+  const { isConnected } = useAccount()
 
-const AppPage: NextPage = () => {
-  const { address, isConnected } = useAccount();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!isConnected) {
-      router.push("/");
-    }
-  }, [isConnected, router]);
-
-  if (!isConnected) {
-    return null;
-  }
-
-  return (
-    <div className="flex items-center flex-col flex-grow pt-10">
-      <div className="px-5">
-        <h1 className="text-center">
-          <span className="block text-4xl font-bold mb-4">Welcome to Umay</span>
-          <span className="block text-xl text-center max-w-2xl mx-auto text-base-content/70">
-            Connected as: {address}
-          </span>
-        </h1>
-      </div>
-
-      <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-base-100 p-8 rounded-3xl shadow-xl">
-              <h2 className="text-2xl font-bold mb-4">📊 Dashboard</h2>
-              <p className="text-base-content/70">View your investments and portfolio performance</p>
-            </div>
-
-            <div className="bg-base-100 p-8 rounded-3xl shadow-xl">
-              <h2 className="text-2xl font-bold mb-4">🌾 My Projects</h2>
-              <p className="text-base-content/70">Manage your agricultural projects</p>
-            </div>
-
-            <div className="bg-base-100 p-8 rounded-3xl shadow-xl">
-              <h2 className="text-2xl font-bold mb-4">💰 Browse Projects</h2>
-              <p className="text-base-content/70">Discover new investment opportunities</p>
-            </div>
-
-            <div className="bg-base-100 p-8 rounded-3xl shadow-xl">
-              <h2 className="text-2xl font-bold mb-4">➕ Create Project</h2>
-              <p className="text-base-content/70">Start fundraising for your farm</p>
-            </div>
+   return (
+    <div className="h-auto min-h-0">
+      <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo.svg" 
+              alt="Logo"
+              width={100}
+              height={100}
+              className="rounded-md"
+            />
+          </div>
+         <div className="flex items-center gap-3">
+          <CustomConnectButton />
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
+      </header>
 
-export default AppPage;
+      <main className="container mx-auto px-4 py-8">
+        <HeroCarousel />
+
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-2 text-balance">
+            Projects
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {farms.map((farm) => (
+            <FarmCard key={farm.id} farm={farm} walletConnected={isConnected} />
+          ))}
+        </div>
+      </main>
+    </div>
+  )
+}

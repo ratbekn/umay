@@ -1,0 +1,25 @@
+[
+  { "type": "function", "name": "usdt", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "address" }] },
+  { "type": "function", "name": "shareToken", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "address" }] },
+  { "type": "function", "name": "targetAmount", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "uint256" }] },
+  { "type": "function", "name": "deadline", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "uint256" }] },
+  { "type": "function", "name": "companyWallet", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "address" }] },
+  { "type": "function", "name": "successReturnBps", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "uint16" }] },
+  { "type": "function", "name": "failReturnBps", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "uint16" }] },
+
+  { "type": "function", "name": "invest", "stateMutability": "nonpayable", "inputs": [{ "type": "uint256", "name": "amount" }], "outputs": [] },
+  { "type": "function", "name": "refund", "stateMutability": "nonpayable", "inputs": [], "outputs": [] },
+
+  { "type": "function", "name": "canRefund", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "bool" }] },
+  { "type": "function", "name": "timeLeft", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "uint256" }] },
+  { "type": "function", "name": "progressBps", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "uint256" }] },
+  { "type": "function", "name": "remainingToTarget", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "uint256" }] },
+  { "type": "function", "name": "poolUSDTBalance", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "uint256" }] },
+  { "type": "function", "name": "investorTokenBalance", "stateMutability": "view", "inputs": [{ "type": "address", "name": "account" }], "outputs": [{ "type": "uint256" }] },
+
+  { "type": "function", "name": "burnByScenario", "stateMutability": "nonpayable", "inputs": [{ "type": "uint8", "name": "scenario" }], "outputs": [] },
+  { "type": "function", "name": "previewPayout", "stateMutability": "view", "inputs": [{ "type": "address", "name": "account" }, { "type": "uint8", "name": "scenario" }, { "type": "uint256", "name": "amount" }], "outputs": [{ "type": "uint256", "name": "payout" }] },
+
+  { "type": "function", "name": "successPayoutActive", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "bool" }] },
+  { "type": "function", "name": "failPayoutActive", "stateMutability": "view", "inputs": [], "outputs": [{ "type": "bool" }] }
+]
