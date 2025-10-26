@@ -2189,6 +2189,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ratbekn/umay@workspace:."
   dependencies:
+    ethers: "npm:^6.15.0"
     husky: "npm:^8.0.1"
     lint-staged: "npm:^13.0.3"
   languageName: unknown
@@ -7370,7 +7371,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:^6.7.1":
+"ethers@npm:^6.15.0, ethers@npm:^6.7.1":
   version: 6.15.0
   resolution: "ethers@npm:6.15.0"
   dependencies:

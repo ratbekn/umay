@@ -1,5 +1,5 @@
 import { createConfig, http } from "wagmi";
-import { hardhat, sepolia } from "wagmi/chains";
+import { polygon } from "wagmi/chains";
 
 import { connectorsForWallets } from "@rainbow-me/rainbowkit";
 import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
@@ -26,10 +26,9 @@ const getConnectors = () => {
 
 export const wagmiConfig = createConfig({
   connectors: getConnectors(),
-  chains: [hardhat, sepolia],
+  chains: [polygon],
   transports: {
-    [hardhat.id]: http(),
-    [sepolia.id]: http(),
+    [polygon.id]: http(),
   },
   ssr: true,
 });

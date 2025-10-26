@@ -1,0 +1,39 @@
+[
+  {
+    "type": "function",
+    "name": "getAllPools",
+    "stateMutability": "view",
+    "inputs": [],
+    "outputs": [{ "type": "address[]", "name": "" }]
+  },
+  {
+    "type": "function",
+    "name": "createInvestmentPool",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      { "name": "companyWallet", "type": "address" },
+      { "name": "targetAmount", "type": "uint256" },
+      { "name": "deadline", "type": "uint256" },
+      { "name": "successReturnBps", "type": "uint16" },
+      { "name": "failReturnBps", "type": "uint16" },
+      { "name": "tokenName", "type": "string" },
+      { "name": "tokenSymbol", "type": "string" },
+      { "name": "tokenDecimals", "type": "uint8" }
+    ],
+    "outputs": [{ "type": "address", "name": "pool" }]
+  },
+  {
+    "type": "function",
+    "name": "totalPools",
+    "stateMutability": "view",
+    "inputs": [],
+    "outputs": [{ "type": "uint256", "name": "" }]
+  },
+  {
+    "type": "function",
+    "name": "latestPool",
+    "stateMutability": "view",
+    "inputs": [],
+    "outputs": [{ "type": "address", "name": "" }]
+  }
+]
