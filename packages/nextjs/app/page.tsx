@@ -3,13 +3,12 @@
 import { useEffect } from "react";
 
 import type { NextPage } from "next";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { useAccount } from "wagmi";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-
-import Image from "next/image"
 
 const Home: NextPage = () => {
   const { isConnected, address } = useAccount();

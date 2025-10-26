@@ -1,10 +1,11 @@
 "use client";
 
-import { FarmCard } from "../app/components/FormCard"
-import { CustomConnectButton } from "../app/components/CustomButton"
-import { HeroCarousel } from "../app/components/HeroCoursel"
-import { useAccount } from "wagmi"
-import Image from "next/image"
+import Image from "next/image";
+
+import { useAccount } from "wagmi";
+
+import { FarmCard } from "../app/components/FormCard";
+import { HeroCarousel } from "../app/components/HeroCoursel";
 
 const farms = [
   {
@@ -14,8 +15,8 @@ const farms = [
     term: "12 months",
     projected: "18%",
     riskLevel: "Low",
-    status:"✓ Live",
-    icon: "🌾"
+    status: "✓ Live",
+    icon: "🌾",
   },
   {
     id: 2,
@@ -24,8 +25,8 @@ const farms = [
     term: "10 months",
     projected: "22%",
     riskLevel: "Medium",
-    status:"✓ Live",
-    icon: "🍯"
+    status: "✓ Live",
+    icon: "🍯",
   },
   {
     id: 3,
@@ -34,15 +35,15 @@ const farms = [
     term: "14 months",
     projected: "20%",
     riskLevel: "Medium",
-    status:"✓ Live",
-    icon: "🐄"
+    status: "✓ Live",
+    icon: "🐄",
   },
-]
+];
 
 export default function App() {
-  const { isConnected, address } = useAccount()
+  const { isConnected } = useAccount();
 
-   return (
+  return (
     <div className="h-auto min-h-0">
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -52,14 +53,11 @@ export default function App() {
         </div>
       </header>
 
-
       <main className="container mx-auto px-4 py-8">
         <HeroCarousel />
 
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-foreground mb-2 text-balance">
-            Projects
-          </h2>
+          <h2 className="text-3xl font-bold text-foreground mb-2 text-balance">Projects</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,5 +67,5 @@ export default function App() {
         </div>
       </main>
     </div>
-  )
+  );
 }

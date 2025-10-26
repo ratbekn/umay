@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
+import { useEffect, useState } from "react";
+
+import Image from "next/image";
 
 const slides = [
   {
@@ -22,20 +23,20 @@ const slides = [
     description: "Earn up to 24% APY from real agricultural ventures",
     image: "/fruit-orchard-apple-trees.jpg",
   },
-]
+];
 
 export function HeroCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrentSlide(prev => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  const nextSlide = () => setCurrentSlide(prev => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length);
 
   return (
     <div className="relative w-full h-[400px] rounded-2xl overflow-hidden bg-card mb-12">
@@ -56,20 +57,14 @@ export function HeroCarousel() {
       ))}
 
       <button
-        variant="ghost"
-        size="icon"
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white"
         onClick={prevSlide}
-      >
-      </button>
+      ></button>
 
       <button
-        variant="ghost"
-        size="icon"
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white"
         onClick={nextSlide}
-      >
-      </button>
+      ></button>
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, index) => (
@@ -83,5 +78,5 @@ export function HeroCarousel() {
         ))}
       </div>
     </div>
-  )
+  );
 }
