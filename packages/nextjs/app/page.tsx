@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { useAccount } from "wagmi";
@@ -164,12 +165,18 @@ const Home: NextPage = () => {
                 }}
               </ConnectButton.Custom>
               <div className="flex items-center gap-3">
-                <button className="px-8 py-3 border border-border bg-background text-foreground text-lg font-semibold rounded-lg hover:bg-card transition-colors flex items-center gap-2">
+                <Link
+                  href="/explore"
+                  className="px-8 py-3 border border-border bg-background text-foreground text-lg font-semibold rounded-lg hover:bg-card transition-colors flex items-center gap-2"
+                >
                   👁️ Explore Projects
-                </button>
-                <button className="px-8 py-3 text-foreground text-lg font-semibold hover:bg-muted/10 rounded-lg transition-colors flex items-center gap-2">
+                </Link>
+                <Link
+                  href="/tutorial"
+                  className="px-8 py-3 text-foreground text-lg font-semibold hover:bg-muted/10 rounded-lg transition-colors flex items-center gap-2"
+                >
                   How It Works →
-                </button>
+                </Link>
               </div>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 max-w-3xl mx-auto">
@@ -681,7 +688,9 @@ const Home: NextPage = () => {
                   Every transaction and payout is visible on the blockchain—no hidden flows.
                 </p>
               </div>
-              <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 mb-12 items-stretch justify-center max-w-4xl mx-auto">
+              <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow h-full flex flex-col text-center items-center">
                 <div className="w-16 h-16 bg-chart-4/10 rounded-full flex items-center justify-center mb-6">
                   <span className="text-chart-4 text-2xl">✅</span>
                 </div>
@@ -690,7 +699,7 @@ const Home: NextPage = () => {
                   Each partner farm goes through identity, land ownership, and production history checks.
                 </p>
               </div>
-              <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow">
+              <div className="p-8 rounded-xl border border-border bg-background hover:shadow-lg transition-shadow h-full flex flex-col text-center items-center">
                 <div className="w-16 h-16 bg-chart-5/10 rounded-full flex items-center justify-center mb-6">
                   <span className="text-chart-5 text-2xl">📊</span>
                 </div>
@@ -942,9 +951,12 @@ const Home: NextPage = () => {
                   );
                 }}
               </ConnectButton.Custom>
-              <button className="px-10 py-4 border border-border bg-background text-foreground text-xl font-semibold rounded-lg hover:bg-card transition-colors flex items-center gap-3">
+              <Link
+                href="/explore"
+                className="px-10 py-4 border border-border bg-background text-foreground text-2xl font-semibold rounded-lg hover:bg-card transition-colors flex items-center gap-3"
+              >
                 👁️ Explore Projects →
-              </button>
+              </Link>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 max-w-4xl mx-auto">
               <div className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-card/80 border border-border/50 backdrop-blur-sm">
