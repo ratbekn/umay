@@ -72,7 +72,6 @@ export async function addTokenToWallet(tokenAddress: string, symbol: string, dec
 }
 
 export async function switchToPolygon() {
-    // Switch wallet to Polygon PoS (default chainId 137)
     const eth = getWindowEthereum() as any;
     const CHAIN_ID = Number(process.env.NEXT_PUBLIC_CHAIN_ID || "137");
     const hex = "0x" + CHAIN_ID.toString(16);
@@ -80,7 +79,6 @@ export async function switchToPolygon() {
         await eth.request({ method: "wallet_switchEthereumChain", params: [{ chainId: hex }] });
     } catch (e: any) {
         if (e?.code === 4902 || /Unrecognized chain ID/i.test(e?.message || "")) {
-            // Try to add Polygon to the wallet if missing
             await eth.request({
                 method: "wallet_addEthereumChain",
                 params: [{

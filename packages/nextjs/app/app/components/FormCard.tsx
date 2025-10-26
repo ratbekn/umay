@@ -4,7 +4,8 @@ import { useState } from "react"
 import { Card } from "../../app/components/ui/card"
 import { ethers, MaxUint256 } from "ethers"
 import ERC20Abi from "../../app/lib/abis/ERC20.json"
-import { getWriteContract } from "../../app/lib/eth"
+import PoolAbi from "../../app/lib/abis/Pool.json"
+import { getWriteContract, getSigner, ensureChain, switchToPolygon } from "../../app/lib/eth"
 
 interface Farm {
   id: number
@@ -14,6 +15,7 @@ interface Farm {
   projected: string
   riskLevel: string
   term: string
+  icon: string
 }
 
 interface FarmCardProps {
@@ -36,24 +38,22 @@ export function FarmCard({ farm, walletConnected }: FarmCardProps) {
     }, 1500)
   }
 
-  // Mapping: for demo/local we use MockUSDT -> AgriProject deployed addresses from hardhat deployments (localhost)
+  // Polygon mainnet addresses
   const CONTRACT_ADDRESSES: Record<string, string> = {
-    mockUSDT: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-    agriProject: "0x7e84e7da2C074A631E607b698f026C899Fc6E611",
+    usdt: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", // USDT (Polygon)
+    pool: "0xf2Acff65FC3540B499EF8f18549C6Ab5C7043273", // Pool/Project contract
   }
 
   async function handleApprove() {
     try {
       setIsApproving(true)
-      // choose token/spender per card — here first two cards use mockUSDT -> agriProject
-      const tokenAddress = CONTRACT_ADDRESSES.mockUSDT
-      const spender = CONTRACT_ADDRESSES.agriProject
+      const tokenAddress = CONTRACT_ADDRESSES.usdt
+      const spender = CONTRACT_ADDRESSES.pool
 
       const token = await getWriteContract(tokenAddress, ERC20Abi)
-  const tx = await token.approve(spender, MaxUint256)
+      const tx = await token.approve(spender, MaxUint256)
       await tx.wait()
       alert("Approve successful — you can now invest.")
-      // If user already entered amount, trigger on-chain invest automatically
       if (amount && Number(amount) > 0) {
         await handleInvestOnChain()
       }
@@ -65,25 +65,32 @@ export function FarmCard({ farm, walletConnected }: FarmCardProps) {
     }
   }
 
-  // Minimal AgriProject ABI for invest(projectId, amount)
-  const AgriProjectAbi = [
-    { "type": "function", "name": "invest", "stateMutability": "nonpayable", "inputs": [{ "type": "uint256", "name": "_projectId" }, { "type": "uint256", "name": "_amount" }], "outputs": [] }
-  ]
-
-  // Minimal Pool ABI for refund()
-  const PoolAbi = [
-    { "type": "function", "name": "refund", "stateMutability": "nonpayable", "inputs": [], "outputs": [] }
-  ]
+  // Minimal Pool ABI for refund() is imported; invest(amount) exists in PoolAbi JSON
 
   async function handleInvestOnChain() {
     try {
       setIsInvestingOnChain(true)
-      // USDT decimals = 6 in this project
+      // Ensure Polygon network
+      await switchToPolygon()
+      await ensureChain(137)
+
+      // USDT decimals = 6 on Polygon
       const decimals = 6
       const amountUnits = ethers.parseUnits(amount.replace(',', '.'), decimals)
 
-      const agri = await getWriteContract(CONTRACT_ADDRESSES.agriProject, AgriProjectAbi)
-      const tx = await agri.invest(farm.id, amountUnits)
+      // Check allowance and approve if needed
+      const token = await getWriteContract(CONTRACT_ADDRESSES.usdt, ERC20Abi)
+      const signer = await getSigner()
+      const owner = await signer.getAddress()
+      const current = await (token as any).allowance(owner, CONTRACT_ADDRESSES.pool)
+      if (current < amountUnits) {
+        const approveTx = await (token as any).approve(CONTRACT_ADDRESSES.pool, MaxUint256)
+        await approveTx.wait()
+      }
+
+      // Call invest(amount) on Pool
+      const pool = await getWriteContract(CONTRACT_ADDRESSES.pool, PoolAbi)
+      const tx = await (pool as any).invest(amountUnits)
       await tx.wait()
       alert("Invest transaction confirmed ✅")
     } catch (err: any) {
@@ -97,9 +104,8 @@ export function FarmCard({ farm, walletConnected }: FarmCardProps) {
   async function handleRefund() {
     try {
       setIsRefunding(true)
-      // Call refund on pool (placeholder uses agriProject address)
-      const pool = await getWriteContract(CONTRACT_ADDRESSES.agriProject, PoolAbi)
-      const tx = await pool.refund()
+      const pool = await getWriteContract(CONTRACT_ADDRESSES.pool, PoolAbi)
+      const tx = await (pool as any).refund()
       await tx.wait()
       alert("Refund executed (if available on contract)")
     } catch (err: any) {
